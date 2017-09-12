@@ -1,0 +1,30 @@
+﻿@*@{
+    ViewBag.Title = "Add";
+}
+<center><h2>Add</h2></center>
+
+<form action="../Home/Add" method="post">
+    <center>
+        Approved By <input type="number" name="ApprovedBy" value="@Model.ApprovedBy" />
+        <br />
+        ApproverId<input type="number" name="ApproverId" value="@Model.ApproverId" />
+        <br />
+        EmployeeId <input type="number" name="EmployeeId" value="@Model.EmployeeId" />
+        <br />
+        RequestedBy <input type="number" name="RequestedBy" value="@Model.RequestedBy" />
+        <br />
+        TypeOfDeviceId <input type="number" name="TypeOfDeviceId" value="@Model.TypeOfDeviceId" />
+        <br />
+
+        BrandName<input type="text" name="BrandName" value="@Model.BrandName" />
+        <br />
+        ContactNo <input type="text" name="ContactNo" value="@Model.ContactNo" />
+        <br />
+        Email <input type="text" name="Email" value="@Model.Email" />
+        <br />
+        SerialNumber <input type="text" name="SerialNumber" value="@Model.SerialNumber" />
+        <br />
+
+        <a href="/Byod/Index" type="submit" class="btn btn-primary btn-md">Submit</a>
+    </center>
+</form>*@

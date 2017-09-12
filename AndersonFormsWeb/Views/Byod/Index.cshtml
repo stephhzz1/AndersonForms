@@ -1,0 +1,245 @@
+﻿@{
+    ViewBag.Title = "BYOD | Anderson Group PH";
+}
+
+<!--Header-->
+    <div class="navbar navbar-default navbar-fixed-top navDiv">
+        <div class="container">
+            <div class="navbar-header">
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+               @*Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+        </div> 
+
+            <div class="navbar-collapse collapse navbar-fixed-top">
+                    <ul class="nav navbar-nav navbar-header" style="display: inline">
+                        <li><a class="navbar-brand" href="~/Byod/Index" title="BYOD | Anderson Group PH">
+                            <img src="~/Content/byodlogo.png" height="65" /></a></li>
+                        <li ><a href="~/Byod/Index" title="Home"><br /><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                        <li><a href="~/Byod/AboutUs" title="About Us"><br /><i class="glyphicon glyphicon-info-sign"></i> About Us</a></li>
+                    </ul>
+                    <br />
+
+                <!--Search Bar-->
+                <div style="width:250px; right:50px; float:right; position:absolute;">
+                    <table style="border:none;">
+                        <tr>
+                            <td><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;</td>
+                            <td><input id='myInput' onkeyup='searchTable()' type='text' class="form-control" style="width:200px;" placeholder="Search..." /></td>
+                        </tr>
+                    </table>
+                </div>
+                <!--End of Search Bar-->
+
+            </div>
+
+     </div>
+  
+<!--End of Header-->
+
+<!--Content/Table-->
+    <div>
+        <br><br><br><br><br><br>
+        <div ng-app="myApp" ng-controller="ByodController as model" ng-init="model.List()">
+            <div class="container">
+
+                <div style="float:inherit">
+
+                    <!--Count Rows Button-->
+                    <button class="btn btn-warning" onclick="CountRows()"><i class="glyphicon glyphicon-list-alt"></i> Count Rows</button> &nbsp;
+                    <!--End of Count Rows Button-->
+                    <!--Sort Button-->
+                    <button onclick="sortTable()" class="btn btn-info"><i class="glyphicon glyphicon-sort"></i> Sort</button> &nbsp;
+                    <!--End of Sort Button-->
+                    <!--Add Button-->
+                    <a ng-href="{{'/Byod/Add/' + Byod.ByodId}}" button class="btn btn-success" data-toggle="modal" data-target="#method"><i class="glyphicon glyphicon-plus-sign"></i> Add</a>
+                    <br /><br /><br />
+                    <!--End of Add Button-->
+
+                </div>
+
+                <!--Table-->
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="tableid">
+
+                        <!--Table Header-->
+                        <thead>
+                            <tr class="info" id="info">
+                                @*<th>Approved By</th>
+                                <th>Approver ID</th>
+                                <th>Employee ID</th>
+                                <th>Requested By</th>*@
+                                <th>Type of Device ID</th>
+                                <th>Brand Name</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>Serial Number</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <!--End of Table Header-->
+                        <!--Table Content-->
+                        <tbody>
+                            <tr ng-repeat="Byod in model.Byods">
+
+                                @*<td>
+                                    <span ng-show="hidden" ng-bind="Byod.ApprovedBy" ></span>
+                                </td>
+                                <td>
+                                    <span ng-show="hidden" ng-bind="Byod.ApproverId"></span>
+                                </td>
+                                <td>
+                                    <span ng-show="hidden" ng-bind="Byod.EmployeeId"></span>
+                                </td>
+                                <td>
+                                    <span ng-show="hidden" ng-bind="Byod.RequestedBy"></span>
+                                </td>*@
+                                <td>
+                                    <span ng-bind="Byod.TypeOfDeviceId"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="Byod.BrandName"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="Byod.ContactNo"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="Byod.Email"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="Byod.SerialNumber"></span>
+                                </td>
+                                <td id="action">
+
+                                    <!--Update Button-->
+                                    <a ng-href="{{'/Byod/Update/' + Byod.ByodId}}" button class="btn btn-primary" data-toggle="modal" data-target="#method"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                                    <!--End of Update Button-->
+                                    <!--Delete Button-->
+                                    <a ng-click="model.Delete(Byod)" button class="btn btn-danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a>
+                                    <!--End of Delete Button-->
+
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!--End of Table Content-->
+                    </table>
+                    <!--End of Table-->
+                </div>
+            </div>
+        </div>
+    </div>
+<!--End of Content/Table-->
+
+<!--MODALS AND SCRIPTS-->
+
+<!--Modal for Add and Edit-->
+<div class="modal fade" id="method" role="dialog">
+
+    <!--Overlay-->
+    <div id="myNav" class="overlay">
+
+        <!--Add and Edit Modal Dialog-->
+        <div class="modal-dialog">
+
+            <!--Add and Edit Modal Content-->
+            <div class="modal-content">
+            </div>
+            <!--End of Add and Edit Modal Content-->
+
+        </div>
+        <!--End of Add and Edit Modal Dialog-->
+
+    </div>
+    <!--End of Overlay-->
+
+</div>
+<!--End of Modal for Add and Edit-->
+
+<!--Search Script-->
+<script>
+    function searchTable() {
+        var input, filter, found, table, tr, td, i, j;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tableid");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+                found = false;
+            } else {
+                if (tr[i].id != 'info') { tr[i].style.display = "none"; } 
+            }
+        }
+    }
+</script>
+<!--End of Search Script-->
+
+<!--Script Sort-->
+<script>
+    function sortTable() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("tableid");
+        switching = true;
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.getElementsByTagName("TR");
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 1; i < (rows.length - 1); i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[0];
+                y = rows[i + 1].getElementsByTagName("TD")[0];
+                //check if the two rows should switch place:
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    //if so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+</script>
+<!--End of Script-->
+
+<!--Script Count Rows-->
+<script>
+    function CountRows() {
+        var totalRowCount = 0;
+        var rowCount = 0;
+        var table = document.getElementById("tableid");
+        var rows = table.getElementsByTagName("tr")
+        for (var i = 0; i < rows.length; i++) {
+            totalRowCount++;
+            if (rows[i].getElementsByTagName("td").length > 0) {
+                rowCount++;
+            }
+        }
+        var message = "\nRow Count: " + rowCount;
+        alert(message);
+    }
+</script>
+<!--End of Script Count Rows-->
