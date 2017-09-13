@@ -7,15 +7,6 @@
 
     <div class="input-group">
         <span class="input-group-addon"> Approved By:</span>
-        @*<select class="form-control" id="appby" name="Approvedby" value="@Model.ApprovedBy" required>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-    </select>
-        <script>$('#appby').val('@Model.ApprovedBy').change();</script>
-      </div>*@
-
         <div class="editor-label">
             @Html.DropDownList("Employedropdown1", ViewBag.VBEmployeeList as SelectList)
 
