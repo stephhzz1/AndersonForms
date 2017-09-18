@@ -15,9 +15,4 @@
         public string SerialNumber { get; set; }
 
     }
-
-    public class User
-    {
-        public int UserID { get; set;}
-    }
 }

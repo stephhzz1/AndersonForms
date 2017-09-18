@@ -1,65 +1,38 @@
 ﻿@{
     ViewBag.Title = "About Us";
 }
-<!--Header-->
-<div class="navbar navbar-default navbar-fixed-top navDiv">
-    <div class="container">
-        <div class="navbar-header">
+      
+    <!--About Us Header-->
+    <br /><br /><br /><br /><br /><br /><br />
+    <center><h2 style="font-family:Arial; font-weight:bold; letter-spacing:40px; color:blue; text-transform:uppercase;">@ViewBag.Title</h2></center>
+    <br /><br /><br />
+    <!--End of About Us Header-->
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-        </div>
 
-        <div class="navbar-collapse collapse navbar-fixed-top">
-            <ul class="nav navbar-nav" style="display: inline">
-                <li>
-                    <a class="navbar-brand" href="~/Byod/Index" title="BYOD | Anderson Group PH">
-                        <img src="~/Content/byodlogo.png" height="65" />
-                    </a>
-                </li>
-                <li><a href="~/Byod/Index" title="Home"><br /><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                <li><a href="~/Byod/AboutUs" title="About Us"><br /><i class="glyphicon glyphicon-info-sign"></i> About Us</a></li>
-            </ul>
-            <br />
-            </div>
+<!--About Us Content-->
+<div class="wrapper">
+    <center>
+        <div class="well well-lg" style=" background-image:url(../../Content/anderson.jpg); background-repeat:no-repeat; background-position:center;background-size:cover;">
+
+            <!--About Us Photo and Title-->
+            <img src="~/Content/Andersonlogo.png" height="100" width="100" /> <h1 style=" font-family:Georgia; font-size:30px;font-weight:bold;">@ViewBag.Message </h1>
+            <!--End of About Us Photo and Title-->
+            <!--About Us Developers-->
+            <hr width="80%" />
+            <strong><span class="glyphicon glyphicon-user"></span> Developers:</strong>
+            <p style="letter-spacing:1px;color:black; font-family:Georgia;">
+                Rowena Daisy A. Tecson | &nbsp;Christian Al A. Gonzalvo | &nbsp;Donalyn L. Evangelista | &nbsp;  Nina Marie C. Bautista |
+                Zymon Peter Q. Bergania | &nbsp; Mary Joyce F. Guitering | &nbsp; Namra Lei Angeles |
+                Racylyn Garcia | &nbsp; Ray Julian Bay | &nbsp; Jayson Alico
+            </p>
         </div>
+            <!--End of About Us Developers-->
+    </center>
     </div>
-          
-            <!--End of Header-->
-            <!--About Us Header-->
-            <br /><br /><br /><br /><br /><br /><br />
-            <center><font color="#777777" size="5" style="letter-spacing:40px; text-transform:uppercase;">@ViewBag.Title</font></center>
-            <br /><br /><br />
-            <!--End of About Us Header-->
-            <!--About Us Content-->
-            <div class="wrapper">
-                <div class="well well-lg">
-                    <center>
-                        <!--About Us Photo and Title-->
-                        <img src="~/Content/Andersonlogo.png" height="250" width="260" />
-                        <h1>@ViewBag.Message</h1>
-                        <!--End of About Us Photo and Title-->
-                        <!--About Us Developers-->
-                        <hr width="80%" />
-                        <font color="#2f4f4f " size="3">
-                            <strong><span class="glyphicon glyphicon-user"></span> Developers:</strong>
-                            <br />
-                            <img src="~/Content/wena.png" height="65" /> Rowena Daisy A. Tecsn &nbsp; <img src="~/Content/dona.png" height="65" /> Donalyn S. Evangelista &nbsp; <img src="~/Content/mamang.png" height="65" /> Nina Marie C. Bautista<br />
-                            <br />
-                            <img src="~/Content/devzy.png" height="65" /> Zymon Peter Q. Bergania &nbsp; <img src="~/Content/devmj.png" height="65" /> Mary Joyce F. Guitering &nbsp; <img src="~/Content/devnam.png" height="65" /> Namra Lei Angeles<br />
-                            <br />
-                            <img src="~/Content/devracy.png" height="65" /> Racylyn Garcia &nbsp; <img src="~/Content/devray.png" height="65" /> Ray Julian Bay &nbsp; <img src="~/Content/devjay.png" height="65" /> Jayson Alico
-                            <br />
-                        </font>
-                        <!--End of About Us Developers-->
-                    </center>
-                </div>
-            </div>
-            <!--End of About us Content-->
-            <!--About Footer-->
-            <br /><br /><br />
-            <div class="wrapper"><footer><hr width="90%" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; @DateTime.Now.Year - ANDERSON GROUP BPO INC.</footer></div>
-            <!--End of About Footer-->
+
+<!--End of About us Content-->
+
+    <!--About Footer-->
+    <br /><br /><br />
+    <div class="wrapper"><footer><hr width="100%" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; @DateTime.Now.Year - ANDERSON GROUP BPO INC.</footer></div>
+    <!--End of About Footer-->

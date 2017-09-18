@@ -1,4 +1,5 @@
-﻿using AccountsWebAuthentication.Helper;
+﻿using AccountsFunction;
+using AndersonCRMFunction;
 using AndersonFormsFunction;
 using AndersonFormsModel;
 using System;
@@ -6,14 +7,20 @@ using System.Web.Mvc;
 
 namespace AndersonFormsWeb.Controllers
 {
-    [CustomAuthorizeAttribute(AllowedRoles =  new string[0])]
+    //[System.Web.Mvc.Accounts.CustomAuthorizeAttribute(UserRole = "Exam Manager")]
     public class ByodController : BaseController
     {
         private IFByod _iFByod;
+        private IFUser _iFUser;
+        private IFEmployee _iFEmployee;
+
 
         public ByodController()
         {
             _iFByod = new FByod();
+            _iFUser = new FUser();
+            _iFEmployee = new FEmployee();
+
         }
 
         #region Get: Byod
@@ -23,9 +30,24 @@ namespace AndersonFormsWeb.Controllers
         }
         #endregion
 
-        #region HttpPost List
+        #region Approval
+        public ActionResult Approval()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Request
+        public ActionResult Request()
+        {
+            return View();
+        }
+        #endregion
+
+        #region List2
         [HttpPost]
-        public ActionResult List()
+        public ActionResult List2()
+
         {
             try
             {
@@ -38,12 +60,32 @@ namespace AndersonFormsWeb.Controllers
         }
         #endregion
 
+
+        #region HttpPost List
+        [HttpPost]
+        public ActionResult List()
+        {
+            try
+            {
+                var user = _iFUser.ReadUser(Username);
+                return Json(_iFByod.ReadForApproval(user.EmployeeId));
+                //var employee = _iFEmployee.ReadEmployee(Employee);
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+        }
+        #endregion
+
+
         #region HttpGet Add
         [HttpGet]
         public ActionResult Add()
         {
             return View(new Byod());
         }
+
         #endregion
 
         #region HttpPost Add
@@ -52,7 +94,6 @@ namespace AndersonFormsWeb.Controllers
         {
             try
             {
-                byod.RequestedBy = UserID;
                 byod = _iFByod.Create(byod);
                 return RedirectToAction("Index", "Byod");
             }
@@ -61,15 +102,6 @@ namespace AndersonFormsWeb.Controllers
                 return Json(byod);
             }
         }
-        #endregion
-
-        #region HttpPost Add (old)
-        //[HttpPost]
-        //public ActionResult Add(Byod byod)
-        //{
-        //    byod = _iFByod.Create(byod);
-        //    return View(byod);
-        //}
         #endregion
 
         #region HttpGet Update
@@ -111,7 +143,7 @@ namespace AndersonFormsWeb.Controllers
             return View(new Byod());
         }
         #endregion
-    
+
         #region HttpPost Delete
         [HttpPost]
         public ActionResult Delete(Byod byod)
@@ -135,5 +167,43 @@ namespace AndersonFormsWeb.Controllers
             return View();
         }
         #endregion
+
+        //    #region HttpGet Approve
+        //    [HttpGet]
+        //    public ActionResult Approve(int id)
+        //    { var user = _iFUser.ReadUser(Username);
+        //        return Json(_iFByod.ReadForApproval(user.EmployeeId));
+        //        { 
+        //        try
+
+        //        {
+
+        //            Byod byod = _iFByod.Read(id);
+        //            return View(byod);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return View(new Byod());
+        //        }
+        //    }
+        //}
+        //#endregion   [HttpPost, ActionName("ClockIn")]
+   
+        #region HttpPost Approve
+        [HttpPost]
+        public ActionResult Approve(Byod byod)
+        {
+            try
+            {
+                byod = _iFByod.Approve(byod);
+                return RedirectToAction( "Byod");
+            }
+            catch (Exception ex)
+            {
+                return View(byod);
+            }
+        }
+        #endregion
+
     }
 }

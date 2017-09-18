@@ -6,9 +6,8 @@ using System.Linq;
 
 namespace AndersonFormsFunction
 {
-
-    public class FByod: IFByod
-    {
+     public class FByod: IFByod
+     {
         private IDByod _iDByod;
 
         public FByod()
@@ -32,6 +31,24 @@ namespace AndersonFormsFunction
             return Byods(eByods);
         }
 
+        #region ReadList2
+        public List<Byod> Read2()
+        {
+            List<EByod> eByods = _iDByod.Read<EByod>(a => true, "ByodId");
+
+            return Byods(eByods);
+        }
+        #endregion
+
+        public List<Byod> ReadForApproval(int approverId)
+        {
+            List<EByod> eByods = _iDByod.Read<EByod>(a => a.ApproverId == approverId, "ByodId");
+            eByods = eByods.OrderByDescending(a => a.ByodId).ToList();
+            return Byods(eByods);
+        }
+
+      
+
         public Byod Read(int byodId)
         {
             EByod eByod = _iDByod.Read<EByod>(a => a.ByodId == byodId);
@@ -44,6 +61,15 @@ namespace AndersonFormsFunction
         {
             EByod eByod = EByod(byod);
             eByod = _iDByod.Update(eByod);
+            return Byod(eByod);
+        }
+        #endregion
+
+        #region Approve
+        public Byod Approve(Byod byod)
+        {
+            EByod eByod = EByod(byod);
+            eByod = _iDByod.Approve(eByod);
             return Byod(eByod);
         }
         #endregion
@@ -62,7 +88,7 @@ namespace AndersonFormsFunction
         {
             return new EByod
             {
-                ApprovedBy = byod.ApprovedBy, 
+                ApprovedBy = byod.ApprovedBy,
                 ApproverId = byod.ApproverId,
                 ByodId = byod.ByodId,
                 EmployeeId = byod.EmployeeId,
@@ -110,6 +136,25 @@ namespace AndersonFormsFunction
                 }
                 ).ToList();
         }
+
+        //private List2<Byod> Byods(List2<EByod> eByods)
+        //{
+        //    return eByods.Select(a =>
+        //        new Byod
+        //        {
+        //            ApprovedBy = a.ApprovedBy,
+        //            ApproverId = a.ApproverId,
+        //            ByodId = a.ByodId,
+        //            EmployeeId = a.EmployeeId,
+        //            RequestedBy = a.RequestedBy,
+        //            TypeOfDeviceId = a.TypeOfDeviceId,
+        //            BrandName = a.BrandName,
+        //            ContactNo = a.ContactNo,
+        //            Email = a.Email,
+        //            SerialNumber = a.SerialNumber,
+        //        }
+        //        ).ToList();
+        //}
         #endregion
     }
 }

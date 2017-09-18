@@ -1,97 +1,74 @@
-﻿@model AndersonForms.models.Employee
+﻿ @{ 
+    Layout = null;
+}
+
+<style>
+    .modal-body {
+                background-image: url(/Content/anderson.jpg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                }
+
+    .input-group-addon {
+        background-color: transparent;
+        border: none;
+        color: black;
+        font-weight: bold;
+    }
+    .form-control {
+        border-color: black;
+    }
+</style>
+
 
 <div class="modal-body">
-    <input type="hidden" name="ByodId" value="@Model.ByodId" />
-    @*all buttons belong here*@
+    <div ng-app="myApp" ng-controller="ByodController as model" ng-init="model.List()">
+        <input type="hidden" name="ByodId" value="@Model.ByodId" />
+       
+       
+        <br />
 
-
-    <div class="input-group">
-        <span class="input-group-addon"> Approved By:</span>
-        <div class="editor-label">
-            @Html.DropDownList("Employedropdown1", ViewBag.VBEmployeeList as SelectList)
-
+        <div class="input-group">
+            <span class="input-group-addon"> Type of Device:</span>
+            <input type="number" class="form-control" name="TypeOfDeviceId" value="@Model.TypeOfDeviceId" placeholder="Type of Device" required>
         </div>
-</div>
-
-    <div class="input-group">
-        <span class="input-group-addon">  Approver ID:</span>
-        <select class="form-control" id="appid" name="ApproverId" value="@Model.ApproverId" required>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-        <script>$('#appid').val('@Model.ApproverId').change();</script>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">Brand Name:</span>
+            <select class="form-control" name="BrandName" value="@Model.BrandName" placeholder="Brand Name" required>
+                <option>Apple</option>
+                <option>Acer</option>
+                <option>Asus</option>
+                <option>Dell</option>
+                <option>Hewlett-Packard</option>
+                <option>Lenovo</option>
+                <option>Samsung</option>
+                <option>Toshiba</option>
+            </select>
+        </div>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon"> Contact Number:</span>
+            <input type="tel" format="09xx-xxx-xxxx" pattern="^09\d{2}\d{3}\d{4}$" class="form-control" name="ContactNo" value="@Model.ContactNo" placeholder="Contact Number" oninvalid="setCustomValidity('Please follow the 09********* format.')" oninput="setCustomValidity('')" required />
+        </div>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">E-mail:</span>
+            <input type="email" class="form-control" name="Email" value="@Model.Email" placeholder="Email" required>
+        </div>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">Serial Number:</span>
+            <input type="text" class="form-control" name="SerialNumber" value="@Model.SerialNumber" placeholder="Serial Number" required>
+        </div>
     </div>
 
-    <div class="input-group">
-        <span class="input-group-addon"> Employee ID:</span>
-        <select class="form-control" id="empid" name="EmployeeId" value="@Model.EmployeeId" required>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-        <script>$('#empid').val('@Model.EmployeeId').change();</script>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon"> Request by:</span>
-        <select class="form-control" id="reqby" name="RequestedBy" value="@Model.RequestedBy" required>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-        <script>$('#reqby').val('@Model.RequestedBy').change();</script>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon"> Device:</span>
-        <select class="form-control" id="devId" name="TypeOfDeviceId" value="@Model.TypeOfDeviceId" required>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-        <script>$('#reqby').val('@Model.TypeOfDeviceId').change();</script>
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon"> Brandname:</span>
-        <select class="form-control" id="BrandName" name="BrandName" value="@Model.BrandName" required>
-            <option>Apple</option>
-            <option>Acer</option>
-            <option>Asus</option>
-            <option>Dell</option>
-            <option>Hewlett-Packard</option>
-            <option>Lenovo</option>
-            <option>Samsung</option>
-            <option>Toshiba</option>
-        </select>
-        <script>$('#reqby').val('@Model.BrandName').change();</script>
-    </div>
- 
-
-    <div class="input-group">
-        <span class="input-group-addon"> Contact Number:</span>
-        <input type="tel" format="09xx-xxx-xxxx" pattern="^09\d{2}\d{3}\d{4}$" class="form-control" name="ContactNo" value="@Model.ContactNo" placeholder="09xx-xxx-xxxx" oninvalid="setCustomValidity('Please follow the 09********* format.')" oninput="setCustomValidity('')" required />
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon">E-mail:</span>
-        <input type="email" class="form-control" name="Email" value="@Model.Email" placeholder="Email" required>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon">Serial Number:</span>
-        <input type="text" class="form-control" name="SerialNumber" value="@Model.SerialNumber" placeholder="Serial Number" required>
-    </div>
-</div>
-<br>
+    <br>
     @*submit button and cancel button*@
-<div class="modal-footer">
-    <center>
-        <button class="btn btn-success" button type="submit" value="Submit"><i class="glyphicon glyphicon-check"></i> Submit</button>
-        <button class="btn btn-danger" button type="button" data-dismiss="modal" value="Close"><i class="glyphicon glyphicon-remove-sign"></i> Cancel</button>
-    </center>
+    <div class="modal-footer" style="border-color:blue;">
+        <center>
+            <button class="btn btn-success" button type="submit" value="Submit"><i class="glyphicon glyphicon-check"></i> Submit</button>
+            <button class="btn btn-danger" button type="button" data-dismiss="modal" value="Close"><i class="glyphicon glyphicon-remove-sign"></i> Cancel</button>
+        </center>
+    </div>
 </div>

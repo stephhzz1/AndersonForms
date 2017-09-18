@@ -1,68 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = "Index";
 }
 
-<script src="~/Scripts/Angular/Service/ViewPageService.js"></script>
-<script src="~/Scripts/Angular/Controller/ViewPageController.js"></script>
-<h2> User List</h2>
+<h2>Anderson Forms</h2>
 
-@*<div ng-app="myApp" ng-controller="ViewPageController as model" ng-init="model.initialize()">
-    <button ng-click=" ()" type="button" class="btn btn-primary btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> Add</button>
-    <br /><br />
-    <div class="container">
-        <table class="table table-bordered" id="tableid">
-            <thead>
-                <tr class="active">
-                    <th>Approved By</th>
-                    <th>Approved ID</th>
-                    <th>Employee ID</th>
-                    <th>Requested By</th>
-                    <th>Type of Device ID</th>
-                    <th>Brand Name</th>
-                    <th>Cellphone Number</th>
-                    <th>Email</th>
-                    <th>Serial Number</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="Byod in model.Byod">
-                    <td>
-                        <span ng-bind="Byod.ApprovedBy"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.ApproverId"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.EmployeeId"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.RequestedBy"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.TypeOfDeviceId"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.BrandName"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.ContactNo"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.Email"></span>
-                    </td>
-                    <td>
-                        <span ng-bind="Byod.SerialNumber"></span>
-                    </td>
-                    <td id="action">
-                        <button ng-click="model.showEditModal(account)" class="edit btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</button>
-                        <button ng-click="model.deletefunction(account.UserID)" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i> Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        @Html.Partial("~/Views/Shared/PaginationView.cshtml")
-    </div>
-</div>*@

@@ -1,7 +1,7 @@
 ﻿using AndersonFormsEntity;
 using System.Data.Entity;
 using AndersonCRMContext;
-
+using AccountsEntity;
 namespace AndersonFormsContext
 {
 
@@ -13,7 +13,7 @@ namespace AndersonFormsContext
 
             if (Database.Exists())
             {
-                Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
+                //Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
             }
             else
             {
