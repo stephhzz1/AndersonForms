@@ -1,15 +1,18 @@
 namespace AndersonFormsContext.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<AndersonFormsContext.Context>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Context context)
+        protected override void Seed(AndersonFormsContext.Context context)
         {
             //  This method will be called after migrating to the latest version.
 

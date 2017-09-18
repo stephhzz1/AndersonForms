@@ -26,6 +26,4 @@ namespace AndersonFormsEntity
         public string SerialNumber { get; set; }
         
     }
-
-
 }

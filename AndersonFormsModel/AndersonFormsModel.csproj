@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AndersonFormsModel</RootNamespace>
     <AssemblyName>AndersonFormsModel</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,11 +60,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\AndersonCRMModel.dll</HintPath>
     </Reference>
-    <Reference Include="Base">
-      <HintPath>..\AndersonFormsWeb\Bin\Base.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,9 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Byod.cs" />
-    <Compile Include="CRMmodel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

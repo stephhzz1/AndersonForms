@@ -3,11 +3,12 @@
     angular
         .module('myApp')
         .factory('ByodService', ByodService);
-    ByodService.$inject = ['$http'].h;
+    ByodService.$inject = ['$http'];
 
     function ByodService($http) {
         return {
             List: List,
+            List2: List2,
             Add: Add,
             Delete: Delete
         }
@@ -16,8 +17,16 @@
             return $http({
                 method: 'POST',
                 url: '../Byod/List',
-            });
+            })
         }
+
+        function List2() {
+            return $http({
+                method: 'POST',
+                url: '../Byod/List2',
+            })
+        }
+
         function Add(byod) {
             return $http({
                 method: 'POST',
@@ -25,7 +34,7 @@
                 data: {
                     byod: byod
                 },
-            });
+            })
         }       
         function Update(byod) {
             return $http({
@@ -34,7 +43,7 @@
                 data: {
                     byod: byod
                 },
-            });
+            })
         }
         function Delete(byod) {
             return $http({
@@ -43,8 +52,17 @@
                 data: {
                     byod: byod
                 },
-            });
+            })
         }
 
+        function Approve(byod) {
+            return $http({
+                method: 'POST',
+                url: '../Byod/Approve',
+                data: {
+                    byod: byod
+                },
+            })
+        }
     }
 })();
