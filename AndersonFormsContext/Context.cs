@@ -9,22 +9,13 @@ namespace AndersonFormsContext
     {
         public Context() : base("AndersonForms")
         {
-            Database.SetInitializer(new DBInitializer());
-
             if (Database.Exists())
             {
-                //Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
+                Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
             }
             else
             {
                 Database.SetInitializer(new DBInitializer());
-            }
-        }
-
-        public class DBInitializer : CreateDatabaseIfNotExists<Context>
-        {
-            public DBInitializer()
-            {
             }
         }
 

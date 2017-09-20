@@ -85,7 +85,6 @@ namespace AndersonFormsWeb.Controllers
         {
             return View(new Byod());
         }
-
         #endregion
 
         #region HttpPost Add
@@ -94,8 +93,13 @@ namespace AndersonFormsWeb.Controllers
         {
             try
             {
+                //var account = _iFUser.ReadUser(Username);
+                //byod.EmployeeId = account.EmployeeId;
+                //byod.RequestedBy = account.EmployeeId;
+                //var employee = _iFEmployee.Read(account.EmployeeId);
+                //byod.ApproverId = employee.ManagerEmployeeId;
                 byod = _iFByod.Create(byod);
-                return RedirectToAction("Index", "Byod");
+                return RedirectToAction("Index");  
             }
             catch (Exception ex)
             {
@@ -110,6 +114,7 @@ namespace AndersonFormsWeb.Controllers
         {
             try
             {
+                
                 Byod byod = _iFByod.Read(id);
                 return View(byod);
             }

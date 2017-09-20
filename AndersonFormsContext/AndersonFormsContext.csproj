@@ -79,10 +79,6 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="DBInitializer.cs" />
-    <Compile Include="Migrations\201708230736425_initial.cs" />
-    <Compile Include="Migrations\201708230736425_initial.Designer.cs">
-      <DependentUpon>201708230736425_initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,11 +91,6 @@
       <Project>{53160434-c361-4686-9f5a-70ae5c2f4d99}</Project>
       <Name>AndersonFormsEntity</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708230736425_initial.resx">
-      <DependentUpon>201708230736425_initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
