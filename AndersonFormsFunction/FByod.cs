@@ -1,8 +1,4 @@
-﻿using AccountsFunction;
-using AndersonCRMFunction;
-using AccountsEntity;
-using AccountsModel;
-using AndersonFormsData;
+﻿using AndersonFormsData;
 using AndersonFormsEntity;
 using AndersonFormsModel;
 using System.Collections.Generic;
@@ -13,13 +9,10 @@ namespace AndersonFormsFunction
      public class FByod: IFByod
      {
         private IDByod _iDByod;
-        private IFUser _iFUser;
-        private IFEmployee _iFEmployee;
 
         public FByod()
         {
             _iDByod = new DByod();
-            _iFUser = new FUser();
         }
 
         #region Create

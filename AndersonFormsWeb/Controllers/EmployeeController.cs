@@ -44,7 +44,7 @@ namespace AndersonFormsWeb.Controllers
             try
             {
                 employee.CompanyId = 1;
-                employee.PositionId = 1;
+                employee.PositionId = "1";
                 employee = _iFEmployee.Create(employee);
                 return Json("");
             }

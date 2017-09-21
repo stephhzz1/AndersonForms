@@ -7,24 +7,20 @@ namespace AndersonFormsEntity
     [Table("RequestedItem")]
     public class ERequestedItem : EBase
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
-        [Required]
         public int EmployeeId { get; set; }
-        [Required]
+        [ForeignKey("Checklist")]
+        public int ChecklistId { get; set; }
         public int DepartmentId { get; set; }
-        [Required]
+        public int ImplementedBy { get; set; }
+        public int RemovedBy { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RequestedItemId { get; set; }
-        [Required]
+
         [StringLength(250)]
         public string Comment { get; set; }
-        [Required]
-        [StringLength(250)]
-        public string ImplementedBy { get; set; }
-        [Required]
-        [StringLength(250)]
-        public string RemovedBy { get; set; }
 
+        public virtual EChecklist Checklist { get; set; }
     }
 }
 
