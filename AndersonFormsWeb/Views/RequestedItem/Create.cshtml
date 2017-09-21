@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div ng-controller="RequestedItemController as model" ng-init="model.List()">
+
+
+    <div class="well well-lg">
+
+        <div class="container">
+            <form>
+                <div class="table-responsive">
+                    <div class="pull-left">
+                        <div class="form-group">
+                            <br><br>
+
+
+                            <table class="info">
+
+                                <tr>
+                                    <td><label>Department Id:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="EmployeeId" ng-model="model.RequestedItem.DepartmentId" /> <br /></td>
+
+                                </tr>
+                                <tr>
+                                    <td><label>Employee Id:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="EmployeeId" ng-model="model.RequestedItem.EmployeeId" /> <br /></td>
+
+                                </tr>
+                                <tr>
+                                    <td><label>Requested Item Id:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="EmployeeId" ng-model="model.RequestedItem.RequestedItemId" /> <br /></td>
+
+                                </tr>
+                                <tr>
+                                    <td><label>Removed By:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="RemovedBy" ng-model="model.RequestedItem.RemovedBy" /> <br /></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><label>Implemented By:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="ImplementedBy" ng-model="model.RequestedItem.ImplementedBy" /> <br /></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><label>Comment:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="Comment" ng-model="model.RequestedItem.Comment" /> <br /></td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                        <a href="/RequestedItem/Create" class="btn btn-info" id="myButton" role="button" ng-click="model.Create() " style="margin-left: 50px;float: left"><i class="glyphicon glyphicon-check"></i>Submit</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

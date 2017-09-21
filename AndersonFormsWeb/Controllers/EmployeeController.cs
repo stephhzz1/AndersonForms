@@ -1,30 +1,83 @@
-﻿using AndersonCRMModel;
+﻿using AndersonCRMFunction;
+using AndersonCRMModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Collections;
+
 
 namespace AndersonFormsWeb.Controllers
 {
+
+    [RoutePrefix("Employee")]
     public class EmployeeController : Controller
     {
-        EmployeeContext Mcon = new EmployeeContext();
-  
-        public ActionResult Index()
+        private IFEmployee _iFEmployee;
+
+        public EmployeeController()
         {
-            Employee MD = new Employee();
-            MD.EmployeeList = new SelectList(Mcon.GetEmployeeList(), "EmployeeId");
-            return View(MD);
+            _iFEmployee = new FEmployee();
         }
 
-        private class EmployeeContext
+        [Route("")]
+        [HttpGet]
+        public ActionResult Index()
         {
-            internal IEnumerable GetEmployeeList()
+
+            return View();
+        }
+
+        [HttpGet]
+        public new ActionResult Profile()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View(new Employee());
+        }
+        [HttpPost]
+
+        public JsonResult Create(Employee employee)
+        {
+
+            try
             {
-                throw new NotImplementedException();
+                employee.CompanyId = 1;
+                employee.PositionId = 1;
+                employee = _iFEmployee.Create(employee);
+                return Json("");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+
+        }
+        //public JsonResult GetData()
+        //{
+        //    Employee db = new Employee();
+
+        //    Employee data = db.EmployeeId.OrderByAsscending(x => x.EmployeeID).Take(1).FirstOrDefault();
+
+        //    return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        //}
+
+        [Route("List")]
+        [HttpPost]
+        public JsonResult List()
+        {
+            try
+            {
+                Employee employee = new Employee();
+                return Json(_iFEmployee.List());
+            }
+            catch (Exception exception)
+            {
+                return Json(exception);
             }
         }
+
+
     }
 }
