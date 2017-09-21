@@ -59,6 +59,7 @@
         <script src="~/Scripts/Angular/app.module.js"></script>
         <script src="~/Scripts/Angular/Service/ByodService.js"></script>
         <script src="~/Scripts/Angular/Controller/ByodController.js"></script>
+       
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
         <script src="app.js"></script>
     </head>
@@ -92,22 +93,34 @@
                                         <li><a href="~/Byod/Index" title="BYOD" style="color:black;"><i class="glyphicon glyphicon-info-sign"></i> BYOD</a></li>
                                         <li><a href="~/Byod/Approval" title="For Approval" style="color:black;"><i class="glyphicon glyphicon-check"></i> For Approval</a></li>
                                         <li><a href="~/Byod/Request" title="Request" style="color:black;"><i class="glyphicon glyphicon-envelope"></i> Request</a></li>
-                                       
+
                                     </ul>
-                                </li>   
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/RIRO/Index" title="RIRO" style="color:black;">
+                                        <br /> RIRO
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+                                        <li><a href="~/Employee/Create" title="Employee" style="color:black;"><i class="glyphicon glyphicon-envelope"></i>Employee</a></li>
+                                        <li><a href="~/RequestedItem/Create" title="RequestedItem" style="color:black;"><i class="glyphicon glyphicon-envelope"></i>Requested Item</a></li>
+
+                                    </ul>
                                 <li><a href="~/Byod/AboutUs" title="About Us" style="color:black;"><br /> About Us</a></li>
-                            </ul>
-                        </div>
+
+</div>
             
             </div>
         </div>
 
     </header>
 
-    <div>
+    <div id="MainContainer" class="body-content" ng-app="myApp">
+        @Html.Partial("_PartialScript")
         @RenderBody()
     </div>
-
+    
 </body>
 </html>
 

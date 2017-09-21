@@ -40,27 +40,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\AccountsEntity.dll</HintPath>
     </Reference>
-    <Reference Include="AndersonCRMContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AndersonCRMContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMContext.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMData.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMEntity.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMFunction.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMModel.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\SourceCode\DLL\BaseData.dll</HintPath>
     </Reference>
     <Reference Include="BaseEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\SourceCode\DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\SourceCode\DLL\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -72,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ERequestedItem.cs" />
     <Compile Include="ETypeOfDevice.cs" />
     <Compile Include="EByod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

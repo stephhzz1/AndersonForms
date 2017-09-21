@@ -40,25 +40,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\AccountsEntity.dll</HintPath>
     </Reference>
-    <Reference Include="AndersonCRMContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AndersonCRMContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AndersonCRMModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMContext.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\SourceCode\DLL\BaseData.dll</HintPath>
     </Reference>
-    <Reference Include="AndersonCRMData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="BaseEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMData.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMEntity.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMFunction.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMModel.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\SourceCode\DLL\BaseEntity.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -79,6 +72,10 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="DBInitializer.cs" />
+    <Compile Include="Migrations\201709210908428_initial.cs" />
+    <Compile Include="Migrations\201709210908428_initial.Designer.cs">
+      <DependentUpon>201709210908428_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -91,6 +88,15 @@
       <Project>{53160434-c361-4686-9f5a-70ae5c2f4d99}</Project>
       <Name>AndersonFormsEntity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AndersonFormsModel\AndersonFormsModel.csproj">
+      <Project>{1F2A4CFF-3E5E-4DA1-B888-C40322A811C6}</Project>
+      <Name>AndersonFormsModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708230736425_initial.resx">
+      <DependentUpon>201708230736425_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+<br><br><br><br>
+<div ng-controller="EmployeeController as model" ng-init="model.List()">
+
+
+    <div class="well well-lg">
+
+        <div class="container">
+            <form>
+                <div class="table-responsive">
+                    <div class="pull-left">
+                        <div class="form-group">
+                            <br><br>
+                            <select ng-model="model.Employee.EmployeeId">
+                                <option ng-bind="Employee.EmployeeId"></option>
+
+                            </select>
+
+                            <table class="info">
+
+
+                                <tr>
+                                    <td><label>Employee Id:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="EmployeeId" ng-model="model.Employee.EmployeeId" /> <br /></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><label> Hiring Manager:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="EmployeeId" ng-model="model.Employee.ManagerEmployeeId" /> <br /></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><label> Name:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="Name" ng-model="model.Employee.FirstName" placeholder="First Name" /> <br /></td>
+                                    <td> <input type="text" class="form-control" id="MiddleName" ng-model="model.Employee.MiddleName" placeholder="Middle Name" /> <br /></td>
+                                    <td><input type="text" class="form-control" id="LastName" ng-model="model.Employee.LastName" placeholder="Last Name" /><br /> </td>
+
+                                </tr>
+
+
+
+                                <tr>
+                                    <td><label>Department:</label> <br /> </td>
+                                    <td> <input type="text" class="form-control" id="Name" ng-model="model.Employee.Department" /> <br /></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><label for="JobTitle">Job Title:</label> <br /></td>
+                                    <td><input type="text" class="form-control" id="JobTitle" ng-model="model.Employee.JobTitle" /><br /> </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td> <label for="HiringDate">Hiring Date: </label><br /></td>
+                                    <td> <input type="date" class="form-control" id="HiringDate" ng-model="model.Employee.HiringDate" /><br /></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <label for="StartingDate">Starting Date: </label><br /> </td>
+                                    <td> <input type="date" class="form-control" id="StartingDate" ng-model="model.Employee.StartingDate" /><br /> </td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <a href="/Employee/Create" class="btn btn-info" id="myButton" role="button" ng-click="model.Create() " style="margin-left: 50px;float: left"><i class="glyphicon glyphicon-check"></i>Add Employee</a>
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
