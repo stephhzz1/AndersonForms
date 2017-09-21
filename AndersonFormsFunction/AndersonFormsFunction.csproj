@@ -40,6 +40,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\AccountsEntity.dll</HintPath>
     </Reference>
+    <Reference Include="AccountsFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AccountsModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="AndersonCRMContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\AndersonCRMContext.dll</HintPath>

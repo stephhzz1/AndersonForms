@@ -1,4 +1,8 @@
-﻿using AndersonFormsData;
+﻿using AccountsFunction;
+using AndersonCRMFunction;
+using AccountsEntity;
+using AccountsModel;
+using AndersonFormsData;
 using AndersonFormsEntity;
 using AndersonFormsModel;
 using System.Collections.Generic;
@@ -9,10 +13,13 @@ namespace AndersonFormsFunction
      public class FByod: IFByod
      {
         private IDByod _iDByod;
+        private IFUser _iFUser;
+        private IFEmployee _iFEmployee;
 
         public FByod()
         {
             _iDByod = new DByod();
+            _iFUser = new FUser();
         }
 
         #region Create
@@ -20,6 +27,7 @@ namespace AndersonFormsFunction
         {
             EByod eByod = EByod(byod);
             eByod = _iDByod.Create(eByod);
+            //var account = _iFUser.ReadUser(Username);
             return Byod(eByod);
         }
         #endregion
@@ -35,7 +43,6 @@ namespace AndersonFormsFunction
         public List<Byod> Read2()
         {
             List<EByod> eByods = _iDByod.Read<EByod>(a => true, "ByodId");
-
             return Byods(eByods);
         }
         #endregion
@@ -59,6 +66,7 @@ namespace AndersonFormsFunction
         #region Update
         public Byod Update(Byod byod)
         {
+            
             EByod eByod = EByod(byod);
             eByod = _iDByod.Update(eByod);
             return Byod(eByod);
