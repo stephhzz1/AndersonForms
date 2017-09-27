@@ -5,9 +5,7 @@
     <div ng-controller="ByodController as model" ng-init="model.Initialise()">
         <div class="row">
             <div class="col-sm-4">
-                <select ng-model="model.ListType" class="form-control" ng-change="model.Read">
-                    <option value="1">Requested</option>
-                    <option value="2">For Approval</option>
+                <select ng-model="model.ListType" class="form-control" ng-change="model.Read()" ng-options="listType.Description for listType in model.ListTypes">
                 </select>
             </div>
         </div>
@@ -16,13 +14,7 @@
                 <a href="~/Byod/Create" class="btn btn-info"><i class="glyphicon glyphicon-plus-sign"></i> New Request</a>
             </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <!--Table-->
-        <table class="table table-striped table-hover" id="tableid">
-
-            <!--Table Header-->
+        <table class="table table-striped table-hover">
             <thead style="background-color:transparent;">
                 <tr id="info">
 
@@ -31,48 +23,44 @@
                     <th>Contact Number</th>
                     <th>Email</th>
                     <th>Serial Number</th>
-                    <th></th>
+                    <th>Approved</th>
+                    <th>Action</th>
                 </tr>
             </thead>
-            <!--End of Table Header-->
-            <!--Table Content-->
             <tbody>
-                <tr ng-repeat="Byod in model.Byods">
+                <tr ng-repeat="byod in model.Byods">
 
                     <td>
-                        <span ng-bind="Byod.TypeOfDeviceId"></span>
+                        <span ng-bind="byod.TypeOfDeviceId"></span>
                     </td>
                     <td>
-                        <span ng-bind="Byod.BrandName"></span>
+                        <span ng-bind="byod.BrandName"></span>
                     </td>
                     <td>
-                        <span ng-bind="Byod.ContactNo"></span>
+                        <span ng-bind="byod.ContactNo"></span>
                     </td>
                     <td>
-                        <span ng-bind="Byod.Email"></span>
+                        <span ng-bind="byod.Email"></span>
                     </td>
                     <td>
-                        <span ng-bind="Byod.SerialNumber"></span>
+                        <span ng-bind="byod.SerialNumber"></span>
                     </td>
-                    <td id="action">
-                        <!--Update Button-->
-                        <a ng-href="{{'/Byod/Update/' + Byod.ByodId}}" button data-toggle="modal" data-target="#method" style="color:blue;"><i class="glyphicon glyphicon-edit"></i>Update</a> &emsp;
-                        <a ng-click="model.Delete(Byod)" button style="color:red;"> <i class="glyphicon glyphicon-trash"></i> Delete</a>
-                        <!--End of Delete Button-->
-
+                    <td>
+                        <span ng-bind="byod.Approved"></span>
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a ng-href="#" ng-click="model.Approve(byod.ByodId)" class="success"> Approve</a></li>
+                                <li><a ng-href="{{'/Byod/Update/' + byod.ByodId}}" class="info"><i class="glyphicon glyphicon-edit"></i>Update</a></li>
+                                <li><a ng-href="#" ng-click="model.Delete(byod.ByodId)" class="danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a></li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-<!--MODALS AND SCRIPTS-->
-<!--Modal for Add and Edit-->
-<div class="modal fade" id="method" role="dialog">
-    <div id="myNav" class="overlay">
-        <div class="modal-dialog">
-            <div class="modal-content" style="border-color:blue;">
-            </div>
-        </div>
-    </div>
-</div>

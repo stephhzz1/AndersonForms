@@ -23,7 +23,7 @@ namespace AndersonFormsFunction
         #endregion
 
         #region Delete
-        void Delete(Byod byod);
+        void Delete(int byodId);
         #endregion
 
     }

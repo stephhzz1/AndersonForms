@@ -9,6 +9,9 @@
         return {
             ReadForApproval: ReadForApproval,
             ReadRequested: ReadRequested,
+
+            Approve: Approve,
+
             Delete: Delete
         }
 
@@ -26,23 +29,17 @@
             })
         }
 
-        function Delete(byod) {
+        function Approve(byodId) {
             return $http({
                 method: 'POST',
-                url: '../Byod/Delete',
-                data: {
-                    byod: byod
-                },
+                url: '../Byod/Approve/' + byodId
             })
         }
 
-        function Approve(byod) {
+        function Delete(byodId) {
             return $http({
-                method: 'POST',
-                url: '../Byod/Approve',
-                data: {
-                    byod: byod
-                },
+                method: 'Delete',
+                url: '../Byod/Delete/' + byodId
             })
         }
     }
