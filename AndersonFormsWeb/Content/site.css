@@ -1,132 +1,14 @@
-﻿/*All design here*/
-
-.navbar {
-    border-bottom-color: #2b358a;
-    border-width: 0 1px 4px 1px;
+﻿/*Layout*/
+body {
+    padding-right: 15px;
+    padding-left:15px;
 }
 
-.logo {
-    right: 1px;
+.body-content {
+    padding-top: 75px;
 }
+/*Layout*/
 
-li {
-    margin-left: 50px;
+.row {
+    padding-bottom: 15px;
 }
-
-    li a:hover, .navbar-brand:hover {
-        color: #2b358a !important;
-        font-weight: bold;
-    }
-
-.navDiv {
-    height: 90px;
-}
-    .activ {
-    z-index: 3;
-    color: #ffffff;
-    background-color: #158cba;
-    border-color: #2b358a;
-    cursor: default;
-    width: 500px;
-}
-
-.container {
-    width: 95%;
-}
-
-#action {
-    text-align: center;
-    width: 250px;
-}
-
-th {
-    text-align: center;
-}
-h1, h2, h3 {
-    color: #2b358a !important;
-}
-
-.ver {
-    color: #2b358a !important;
-}
-
-.jumbotron {
-    width: 90%;
-    margin: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 40px;
-    padding-top: 40px;
-}
-
-.p {
-    color: #2b358a !important;
-}
-
-.input-group {
-    width: 100%;
-}
-
-.input-group-addon {
-    width: 25%;
-}
-
-.form-control {
-    width: 100%;
-}
-.modal-backdrop{
-    opacity:0 !important;
-}
-.overlay {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.5);
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-
-.wrapper{
-    width: 80%;
-    margin: 0px auto;
-}
-
-.search {
-    width: 40%;
-    position: relative;
-}
-
-.searchTerm {
-    float: left;
-    width: 100%;
-    border: 2px solid #00B4CC;
-    padding: 10px;
-    height: 30px;
-    border-radius: 1px;
-    outline: none;
-    color: #2979ff;
-}
-
-    .searchTerm:focus {
-        color: #00B4CC;
-    }
-
-.searchButton {
-    position: absolute;
-    right: -50px;
-    width: 50px;
-    height: 30px;
-    border: 2px solid #00B4CC;
-    background: #00bcd4;
-    text-align: center;
-    color: #fff;
-    border-radius: 1px;
-    cursor: pointer;
-    font-size: 10px;
-}
-
-/*Zy, Nam and MJ was here hek hek :P*/
