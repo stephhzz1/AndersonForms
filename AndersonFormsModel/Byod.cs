@@ -1,6 +1,6 @@
 ﻿namespace AndersonFormsModel
 {
-    public class Byod
+    public class Byod : Base.Base
     {
         public int ApprovedBy { get; set; }
         public int ApproverId { get; set; }
