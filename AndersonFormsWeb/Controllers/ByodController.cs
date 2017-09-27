@@ -1,4 +1,5 @@
 ﻿using AndersonCRMFunction;
+using AndersonCRMModel;
 using AndersonFormsFunction;
 using AndersonFormsModel;
 using System;
@@ -39,14 +40,14 @@ namespace AndersonFormsWeb.Controllers
                 if (account.EmployeeId != 0)
                 {
                     var employee = _iFEmployee.Read(account.EmployeeId);
-                   //To Do: Get the manager ID from CRM
+                    byod.ApproverId = employee.ManagerEmployeeId;
                 }
                 byod = _iFByod.Create(byod);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                return Json(byod);
+                return Json(ex);
             }
         }
         #endregion
@@ -83,7 +84,6 @@ namespace AndersonFormsWeb.Controllers
         {
             try
             {
-
                 Byod byod = _iFByod.Read(id);
                 return View(byod);
             }
@@ -139,12 +139,6 @@ namespace AndersonFormsWeb.Controllers
         #endregion
 
         #region Other
-        public ActionResult AboutUs()
-        {
-            ViewBag.Message = "B.Y.O.D (Bring Your Own Device)";
-
-            return View();
-        }
         #endregion
     }
 }

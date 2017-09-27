@@ -2,66 +2,45 @@
     'use strict';
 
     angular
-        .module('myApp')
+        .module('App')
         .controller('ByodController', ByodController);
 
     ByodController.$inject = ['ByodService'];
 
     function ByodController(ByodService) {
         var vm = this;
+        //variables
+        vm.ListType;
+        //object List
         vm.Byods = [];
-        vm.List = List;
-        vm.Delete = Delete;
-
-        function List() {
-            ByodService.List()
-                .then(function (response) {
-                    vm.Byods = response.data;
-                })
-                .catch(function (response) {
-                });
+        //declared Read
+        vm.Initialise = Initialise;
+        vm.Read = Read;
+        //function global Read
+        function Initialise() {
+            vm.ListType = 2;
+            Read();
         }
 
-        function List2() {
-            ByodService.List()
-                .then(function (response) {
-                    vm.Byods = response.data;
-                })
-                .catch(function (response) {
-                });
-        }
+        function Read() {
+            if (vm.ListType == 1) {
+                ByodService.ReadRequested(vm.ListType)
+                    .then(function (response) {
+                        vm.Byods = response.data;
+                    })
+                    .catch(function (data, status) {
 
-        function Add(byod) {
-            ByodService.Create(byod)
-                .then(function (response) {
-                    List();
-                })
-                .catch(function (response) {
-                });
-        }
-        function Update(byod) {
-            ByodService.Update(byod)
-                .then(function (response) {
-                    List();
-                })
-                .catch(function (response) {
-                });
-        }
-        function Approve(byod) {
-            ByodService.Approve(byod)
-                .then(function (response) {
-                    List("");
-                })
-                .catch(function (response) {
-                });
-        }
-        function Delete(byod) {
-            ByodService.Delete(byod)
-                .then(function (response) {
-                    List();
-                })
-                .catch(function (response) {
-                });
+                    });
+            }
+            else {
+                ByodService.ReadForApproval(vm.ListType)
+                    .then(function (response) {
+                        vm.Byods = response.data;
+                    })
+                    .catch(function (data, status) {
+
+                    });
+            }
         }
     }
 

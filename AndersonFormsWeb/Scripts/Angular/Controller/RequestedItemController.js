@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-    .module('myApp')
+    .module('App')
     .controller('RequestedItemController', RequestedItemController);
 
     RequestedItemController.$inject = ['RequestedItemService'];
