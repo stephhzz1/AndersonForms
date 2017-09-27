@@ -1,5 +1,4 @@
 ﻿using AndersonCRMFunction;
-using AndersonCRMModel;
 using AndersonFormsFunction;
 using AndersonFormsModel;
 using System;
@@ -124,11 +123,11 @@ namespace AndersonFormsWeb.Controllers
 
         #region Delete 
         [HttpDelete]
-        public JsonResult Delete(Byod byod)
+        public JsonResult Delete(int id)
         {
             try
             {
-                _iFByod.Delete(byod);
+                _iFByod.Delete(id);
                 return Json(true);
             }
             catch (Exception ex)

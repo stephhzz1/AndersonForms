@@ -68,16 +68,17 @@ namespace AndersonFormsFunction
             EByod eByod = _iDByod.Read<EByod>(a => a.ByodId == byodId);
             eByod.UpdatedDate = DateTime.Now;
             eByod.UpdatedBy = approvedBy;
+            
+            eByod.ApprovedDate = DateTime.Now;
             eByod.ApprovedBy = approvedBy;
             _iDByod.Update(eByod);
         }
         #endregion
 
         #region Delete
-        public void Delete(Byod byod)
+        public void Delete(int byodId)
         {
-            EByod eByod = EByod(byod);
-            _iDByod.Delete(eByod);
+            _iDByod.Delete<EByod>(a => a.ByodId == byodId);
         }
         #endregion
 
@@ -86,6 +87,7 @@ namespace AndersonFormsFunction
         {
             return new EByod
             {
+                ApprovedDate = byod.ApprovedDate,
                 ApprovedBy = byod.ApprovedBy,
                 ApproverId = byod.ApproverId,
                 ByodId = byod.ByodId,
@@ -103,6 +105,7 @@ namespace AndersonFormsFunction
         {
             return new Byod
             {
+                ApprovedDate = eByod.ApprovedDate,
                 ApprovedBy = eByod.ApprovedBy,
                 ApproverId = eByod.ApproverId,
                 ByodId = eByod.ByodId,
@@ -121,6 +124,7 @@ namespace AndersonFormsFunction
             return eByods.Select(a =>
                 new Byod
                 {
+                    ApprovedDate = a.ApprovedDate,
                     ApprovedBy = a.ApprovedBy,
                     ApproverId = a.ApproverId,
                     ByodId = a.ByodId,
@@ -134,25 +138,6 @@ namespace AndersonFormsFunction
                 }
                 ).ToList();
         }
-
-        //private List2<Byod> Byods(List2<EByod> eByods)
-        //{
-        //    return eByods.Select(a =>
-        //        new Byod
-        //        {
-        //            ApprovedBy = a.ApprovedBy,
-        //            ApproverId = a.ApproverId,
-        //            ByodId = a.ByodId,
-        //            EmployeeId = a.EmployeeId,
-        //            RequestedBy = a.RequestedBy,
-        //            TypeOfDeviceId = a.TypeOfDeviceId,
-        //            BrandName = a.BrandName,
-        //            ContactNo = a.ContactNo,
-        //            Email = a.Email,
-        //            SerialNumber = a.SerialNumber,
-        //        }
-        //        ).ToList();
-        //}
         #endregion
     }
 }
