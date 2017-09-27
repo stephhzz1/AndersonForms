@@ -32,34 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccountsContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AccountsContext.dll</HintPath>
-    </Reference>
-    <Reference Include="AccountsEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AccountsEntity.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMContext.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMData.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMEntity.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMFunction.dll</HintPath>
-    </Reference>
-    <Reference Include="AndersonCRMModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\AndersonCRMModel.dll</HintPath>
-    </Reference>
     <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="BaseEntity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
