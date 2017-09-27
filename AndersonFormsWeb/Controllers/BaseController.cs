@@ -1,4 +1,5 @@
 ﻿using AccountsFunction;
+using AccountsModel;
 using AccountsWebAuthentication.Helper;
 using System.Web.Mvc;
 
@@ -13,6 +14,24 @@ namespace AndersonFormsWeb.Controllers
             _iFUser = new FUser();
         }
 
+        protected int EmployeeId
+        {
+            get
+            {
+                int UserId = CurrentUser?.EmployeeId ?? 0;
+                return UserId;
+            }
+        }
+
+        protected int UserId
+        {
+            get
+            {
+                int UserId = CurrentUser?.UserId ?? 0;
+                return UserId;
+            }
+        }
+
         protected string Username
         {
             get
@@ -21,13 +40,12 @@ namespace AndersonFormsWeb.Controllers
             }
         }
 
-        protected int UserID
+        protected User CurrentUser
         {
             get
             {
                 var user = _iFUser.ReadUser(Username);
-                int UserID = user?.UserID ?? 0;
-                return UserID;
+                return user;
             }
         }
     }
