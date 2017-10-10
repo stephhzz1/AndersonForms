@@ -12,21 +12,18 @@ namespace AndersonFormsFunction
 
         #region Read
         Byod Read(int byodId);
-        List<Byod> ReadForApproval(int approverId);
         List<Byod> Read();
-        //List<Byod> ReadForByod();
+        List<Byod> ReadForApproval(int approverId);
+        List<Byod> ReadRequested(int employeeId);
         #endregion
 
         #region Update
         Byod Update(Byod byod);
-        #endregion
-
-        #region Approve
-        Byod Approve(Byod byod);
+        void Approve(int approvedBy, int byodId);
         #endregion
 
         #region Delete
-        void Delete(Byod byod);
+        void Delete(int byodId);
         #endregion
 
     }

@@ -1,8 +1,8 @@
 ﻿using AndersonCRMFunction;
 using AndersonCRMModel;
+
 using System;
 using System.Web.Mvc;
-
 
 namespace AndersonFormsWeb.Controllers
 {
@@ -10,50 +10,50 @@ namespace AndersonFormsWeb.Controllers
     [RoutePrefix("Employee")]
     public class EmployeeController : Controller
     {
-        private IFEmployee _iFEmployee;
+        //private IFEmployee _iFEmployee;
 
-        public EmployeeController()
-        {
-            _iFEmployee = new FEmployee();
-        }
+        //public EmployeeController()
+        //{
+        //    _iFEmployee = new FEmployee();
+        //}
 
-        [Route("")]
-        [HttpGet]
-        public ActionResult Index()
-        {
+        //[Route("")]
+        //[HttpGet]
+        //public ActionResult Index()
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        [HttpGet]
-        public new ActionResult Profile()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public new ActionResult Profile()
+        //{
+        //    return View();
+        //}
 
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View(new Employee());
-        }
-        [HttpPost]
+        //[HttpGet]
+        //public ActionResult Create()
+        //{
+        //    return View(new Employee());
+        //}
+        //[HttpPost]
 
-        public JsonResult Create(Employee employee)
-        {
+        //public JsonResult Create(Employee employee)
+        //{
 
-            try
-            {
-                employee.CompanyId = 1;
-                employee.PositionId = "1";
-                employee = _iFEmployee.Create(employee);
-                return Json("");
-            }
-            catch (Exception ex)
-            {
-                return Json(ex);
-            }
+        //    try
+        //    {
+        //        employee.CompanyId = 1;
+        //        employee.PositionId = 1;
+        //        employee = _iFEmployee.Create(employee);
+        //        return Json("");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Json(ex);
+        //    }
 
-        }
+        //}
         //public JsonResult GetData()
         //{
         //    Employee db = new Employee();
@@ -63,20 +63,20 @@ namespace AndersonFormsWeb.Controllers
         //    return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         //}
 
-        [Route("List")]
-        [HttpPost]
-        public JsonResult List()
-        {
-            try
-            {
-                Employee employee = new Employee();
-                return Json(_iFEmployee.List());
-            }
-            catch (Exception exception)
-            {
-                return Json(exception);
-            }
-        }
+        //[Route("List")]
+        //[HttpPost]
+        //public JsonResult List()
+        //{
+        //    try
+        //    {
+        //        Employee employee = new Employee();
+        //        return Json(_iFEmployee.List());
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        return Json(exception);
+        //    }
+        //}
 
 
     }

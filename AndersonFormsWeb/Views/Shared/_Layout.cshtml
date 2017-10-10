@@ -1,126 +1,40 @@
-﻿<!DOCTYPE html>
+﻿@*<style>
 
-<style>
-    .ng-modal-overlay {
-        /* A dark translucent div that covers the whole screen */
-        position: absolute;
-        z-index: 9999;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000000;
-        opacity: 0.8;
-    }
+ #start{
 
-    .ng-modal-dialog {
-        /* A centered div above the overlay with a box shadow. */
-        z-index: 10000;
-        position: absolute;
-        width: 50%; /* Default */
-        /* Center the dialog */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        background-color: #fff;
-        box-shadow: 4px 4px 80px #000;
-    }
-
-    .ng-modal-dialog-content {
-        padding: 10px;
-        text-align: left;
-    }
-
-    .ng-modal-close {
-        position: absolute;
-        top: 3px;
-        right: 5px;
-        padding: 5px;
-        cursor: pointer;
-        font-size: 120%;
-        display: inline-block;
-        font-weight: bold;
-        font-family: 'arial', 'sans-serif';
-    }
-</style>
-
-<html>
-
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>@ViewBag.Title</title>
-        <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="~/Content/site.css" rel="stylesheet" type="text/css" />
-        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
-        <script src="~/bower_components/angular/angular.min.js"></script>
-        <script src="~/Scripts/Angular/app.module.js"></script>
-        <script src="~/Scripts/Angular/Service/ByodService.js"></script>
-        <script src="~/Scripts/Angular/Controller/ByodController.js"></script>
-       
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-        <script src="app.js"></script>
-    </head>
-
-<body>
-
-
-    <header>
-        <!--Header-->
-        <div class="navbar navbar-default navbar-fixed-top navDiv">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-                </div>
-
-                        <div class="navbar-collapse collapse navbar-fixed-top">
-                            <ul class="nav navbar-nav" style="display: inline">
-                                <li><a class="navbar-brand" href="~/Byod/Index" title="BYOD | Anderson Group PH"><img src="~/Content/byodlogo.png" height="65" width="300" /></a></li>
-                                <li><a href="~/Home/Index" title="Home" style="color:black;"><br /><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/Byod/Index" title="BYOD" style="color:black;">
-                                        <br /> BYOD
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="~/Byod/Index" title="BYOD" style="color:black;"><i class="glyphicon glyphicon-info-sign"></i> BYOD</a></li>
-                                        <li><a href="~/Byod/Approval" title="For Approval" style="color:black;"><i class="glyphicon glyphicon-check"></i> For Approval</a></li>
-                                        <li><a href="~/Byod/Request" title="Request" style="color:black;"><i class="glyphicon glyphicon-envelope"></i> Request</a></li>
-
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/RIRO/Index" title="RIRO" style="color:black;">
-                                        <br /> RIRO
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-
-                                        <li><a href="~/Employee/Create" title="Employee" style="color:black;"><i class="glyphicon glyphicon-envelope"></i>Employee</a></li>
-                                        <li><a href="~/RequestedItem/Create" title="RequestedItem" style="color:black;"><i class="glyphicon glyphicon-envelope"></i>Requested Item</a></li>
-
-                                    </ul>
-                                <li><a href="~/Byod/AboutUs" title="About Us" style="color:black;"><br /> About Us</a></li>
-
-</div>
-            
-            </div>
-        </div>
-
-    </header>
-
-    <div id="MainContainer" class="body-content" ng-app="myApp">
-        @Html.Partial("_PartialScript")
-        @RenderBody()
-    </div>
+    background-color:lightgray;
     
+    }
+
+    </style>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    @Html.Partial("_PartialScript")
+    @Html.Partial("_PartialCSS")
+   
+</head>
+<body>
+  
+      @Html.Partial("_MainLayout")
+       @RenderBody()
+
+
+
+
+
+
+    <footer>
+        <center>
+            <br><br><br><br>
+
+            <p>&copy; @DateTime.Now.Year - ANDERSON GROUP BPO Inc.</p>
+        </center>
+    </footer>
 </body>
 </html>
+
 

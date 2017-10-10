@@ -1,0 +1,31 @@
+﻿<style>
+     p{
+    letter-spacing:1px;
+    color:black; 
+     font-weight: bold;
+    font-family:Georgia;
+    }
+    </style>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Html.Partial("_PartialScript")
+    @Html.Partial("_PartialCSS")
+</head>
+<body>
+
+    @Html.Partial("_MainLayout")
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <center>
+            <p>&copy; @DateTime.Now.Year - ANDERSON GROUP BPO Inc.</p>
+        </center>
+    </footer>
+</body>
+</html>

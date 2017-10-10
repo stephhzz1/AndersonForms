@@ -1,5 +1,4 @@
-﻿using AccountsFunction;
-using AndersonCRMFunction;
+﻿using AndersonCRMFunction;
 using AndersonFormsFunction;
 using AndersonFormsModel;
 using System;
@@ -11,110 +10,79 @@ namespace AndersonFormsWeb.Controllers
     public class ByodController : BaseController
     {
         private IFByod _iFByod;
-        private IFUser _iFUser;
         private IFEmployee _iFEmployee;
 
 
         public ByodController()
         {
             _iFByod = new FByod();
-            _iFUser = new FUser();
             _iFEmployee = new FEmployee();
 
         }
 
-        #region Get: Byod
+        #region Create
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View(new Byod());
+        }
+
+        [HttpPost]
+        public ActionResult Create(Byod byod)
+        {
+            try
+            {
+                var account = CurrentUser;
+                byod.EmployeeId = account.EmployeeId;
+                byod.RequestedBy = account.UserId;
+                byod.CreatedBy = account.UserId;
+                if (account.EmployeeId != 0)
+                {
+                    var employee = _iFEmployee.Read(account.EmployeeId);
+                    byod.ApproverId = employee.ManagerEmployeeId;
+                }
+                byod = _iFByod.Create(byod);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+        }
+        #endregion
+
+        #region Read
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-        #endregion
 
-        #region Approval
-        public ActionResult Approval()
-        {
-            return View();
-        }
-        #endregion
-
-        #region Request
-        public ActionResult Request()
-        {
-            return View();
-        }
-        #endregion
-
-        #region List2
         [HttpPost]
-        public ActionResult List2()
-
+        public JsonResult Read()
         {
-            try
-            {
-                return Json(_iFByod.Read());
-            }
-            catch (Exception ex)
-            {
-                return Json(ex);
-            }
+            return Json(_iFByod.Read());
         }
-        #endregion
 
-
-        #region HttpPost List
         [HttpPost]
-        public ActionResult List()
+        public JsonResult ReadForApproval()
         {
-            try
-            {
-                var user = _iFUser.ReadUser(Username);
-                return Json(_iFByod.ReadForApproval(user.EmployeeId));
-                //var employee = _iFEmployee.ReadEmployee(Employee);
-            }
-            catch (Exception ex)
-            {
-                return Json(ex);
-            }
+            return Json(_iFByod.ReadForApproval(EmployeeId));
         }
-        #endregion
 
-
-        #region HttpGet Add
-        [HttpGet]
-        public ActionResult Add()
-        {
-            return View(new Byod());
-        }
-        #endregion
-
-        #region HttpPost Add
         [HttpPost]
-        public ActionResult Add(Byod byod)
+        public JsonResult ReadRequested()
         {
-            try
-            {
-                //var account = _iFUser.ReadUser(Username);
-                //byod.EmployeeId = account.EmployeeId;
-                //byod.RequestedBy = account.EmployeeId;
-                //var employee = _iFEmployee.Read(account.EmployeeId);
-                //byod.ApproverId = employee.ManagerEmployeeId;
-                byod = _iFByod.Create(byod);
-                return RedirectToAction("Index");  
-            }
-            catch (Exception ex)
-            {
-                return Json(byod);
-            }
+            return Json(_iFByod.ReadRequested(EmployeeId));
         }
         #endregion
 
-        #region HttpGet Update
+        #region Update
         [HttpGet]
         public ActionResult Update(int id)
         {
             try
             {
-                
                 Byod byod = _iFByod.Read(id);
                 return View(byod);
             }
@@ -123,9 +91,7 @@ namespace AndersonFormsWeb.Controllers
                 return View(new Byod());
             }
         }
-        #endregion
 
-        #region HttpPost Update
         [HttpPost]
         public ActionResult Update(Byod byod)
         {
@@ -139,76 +105,39 @@ namespace AndersonFormsWeb.Controllers
                 return View(byod);
             }
         }
-        #endregion
 
-        #region HttpGet Edit
-        [HttpGet]
-        public ActionResult Edit()
-        {
-            return View(new Byod());
-        }
-        #endregion
-
-        #region HttpPost Delete
         [HttpPost]
-        public ActionResult Delete(Byod byod)
+        public JsonResult Approve(int id)
         {
             try
             {
-                _iFByod.Delete(byod);
-                return Json("");
+                _iFByod.Approve(UserId, id);
+                return Json(true);
             }
             catch (Exception ex)
             {
-                return Json(ex);
+                return Json(false);
             }
         }
         #endregion
-        #region AboutUs
-        public ActionResult AboutUs()
-        {
-            ViewBag.Message = "B.Y.O.D (Bring Your Own Device)";
 
-            return View();
-        }
-        #endregion
-
-        //    #region HttpGet Approve
-        //    [HttpGet]
-        //    public ActionResult Approve(int id)
-        //    { var user = _iFUser.ReadUser(Username);
-        //        return Json(_iFByod.ReadForApproval(user.EmployeeId));
-        //        { 
-        //        try
-
-        //        {
-
-        //            Byod byod = _iFByod.Read(id);
-        //            return View(byod);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return View(new Byod());
-        //        }
-        //    }
-        //}
-        //#endregion   [HttpPost, ActionName("ClockIn")]
-   
-        #region HttpPost Approve
-        [HttpPost]
-        public ActionResult Approve(Byod byod)
+        #region Delete 
+        [HttpDelete]
+        public JsonResult Delete(int id)
         {
             try
             {
-                byod = _iFByod.Approve(byod);
-                return RedirectToAction( "Byod");
+                _iFByod.Delete(id);
+                return Json(true);
             }
             catch (Exception ex)
             {
-                return View(byod);
+                return Json(false);
             }
         }
         #endregion
 
+        #region Other
+        #endregion
     }
 }

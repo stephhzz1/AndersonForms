@@ -1,6 +1,7 @@
 ﻿using AndersonFormsData;
 using AndersonFormsEntity;
 using AndersonFormsModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,26 +20,24 @@ namespace AndersonFormsFunction
         public Byod Create(Byod byod)
         {
             EByod eByod = EByod(byod);
+            eByod.CreatedDate = DateTime.Now;
             eByod = _iDByod.Create(eByod);
-            //var account = _iFUser.ReadUser(Username);
             return Byod(eByod);
         }
         #endregion
 
         #region Read
+        public Byod Read(int byodId)
+        {
+            EByod eByod = _iDByod.Read<EByod>(a => a.ByodId == byodId);
+            return Byod(eByod);
+        }
+
         public List<Byod> Read()
         {
             List<EByod> eByods = _iDByod.Read<EByod>(a => true, "ByodId");
             return Byods(eByods);
         }
-
-        #region ReadList2
-        public List<Byod> Read2()
-        {
-            List<EByod> eByods = _iDByod.Read<EByod>(a => true, "ByodId");
-            return Byods(eByods);
-        }
-        #endregion
 
         public List<Byod> ReadForApproval(int approverId)
         {
@@ -47,48 +46,48 @@ namespace AndersonFormsFunction
             return Byods(eByods);
         }
 
-      
-
-        public Byod Read(int byodId)
+        public List<Byod> ReadRequested(int employeeId)
         {
-            EByod eByod = _iDByod.Read<EByod>(a => a.ByodId == byodId);
-            return Byod(eByod);
+            List<EByod> eByods = _iDByod.Read<EByod>(a => a.EmployeeId == employeeId, "ByodId");
+            eByods = eByods.OrderByDescending(a => a.ByodId).ToList();
+            return Byods(eByods);
         }
         #endregion
 
         #region Update
         public Byod Update(Byod byod)
         {
-            
             EByod eByod = EByod(byod);
+            eByod.UpdatedDate = DateTime.Now;
             eByod = _iDByod.Update(eByod);
             return Byod(eByod);
         }
-        #endregion
 
-        #region Approve
-        public Byod Approve(Byod byod)
+        public void Approve(int approvedBy, int byodId)
         {
-            EByod eByod = EByod(byod);
-            eByod = _iDByod.Approve(eByod);
-            return Byod(eByod);
+            EByod eByod = _iDByod.Read<EByod>(a => a.ByodId == byodId);
+            eByod.UpdatedDate = DateTime.Now;
+            eByod.UpdatedBy = approvedBy;
+            
+            eByod.ApprovedDate = DateTime.Now;
+            eByod.ApprovedBy = approvedBy;
+            _iDByod.Update(eByod);
         }
         #endregion
 
         #region Delete
-        public void Delete(Byod byod)
+        public void Delete(int byodId)
         {
-            EByod eByod = EByod(byod);
-            _iDByod.Delete(eByod);
+            _iDByod.Delete<EByod>(a => a.ByodId == byodId);
         }
         #endregion
-
 
         #region Other Function
         private EByod EByod(Byod byod)
         {
             return new EByod
             {
+                ApprovedDate = byod.ApprovedDate,
                 ApprovedBy = byod.ApprovedBy,
                 ApproverId = byod.ApproverId,
                 ByodId = byod.ByodId,
@@ -106,6 +105,7 @@ namespace AndersonFormsFunction
         {
             return new Byod
             {
+                ApprovedDate = eByod.ApprovedDate,
                 ApprovedBy = eByod.ApprovedBy,
                 ApproverId = eByod.ApproverId,
                 ByodId = eByod.ByodId,
@@ -124,6 +124,7 @@ namespace AndersonFormsFunction
             return eByods.Select(a =>
                 new Byod
                 {
+                    ApprovedDate = a.ApprovedDate,
                     ApprovedBy = a.ApprovedBy,
                     ApproverId = a.ApproverId,
                     ByodId = a.ByodId,
@@ -137,25 +138,6 @@ namespace AndersonFormsFunction
                 }
                 ).ToList();
         }
-
-        //private List2<Byod> Byods(List2<EByod> eByods)
-        //{
-        //    return eByods.Select(a =>
-        //        new Byod
-        //        {
-        //            ApprovedBy = a.ApprovedBy,
-        //            ApproverId = a.ApproverId,
-        //            ByodId = a.ByodId,
-        //            EmployeeId = a.EmployeeId,
-        //            RequestedBy = a.RequestedBy,
-        //            TypeOfDeviceId = a.TypeOfDeviceId,
-        //            BrandName = a.BrandName,
-        //            ContactNo = a.ContactNo,
-        //            Email = a.Email,
-        //            SerialNumber = a.SerialNumber,
-        //        }
-        //        ).ToList();
-        //}
         #endregion
     }
 }

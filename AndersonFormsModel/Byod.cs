@@ -1,7 +1,19 @@
-﻿namespace AndersonFormsModel
+﻿using System;
+
+namespace AndersonFormsModel
 {
-    public class Byod
+    public class Byod : Base.Base
     {
+        public bool Approved
+        {
+            get
+            {
+                return ApprovedBy != 0;
+            }
+        }
+
+        public DateTime? ApprovedDate { get; set; }
+
         public int ApprovedBy { get; set; }
         public int ApproverId { get; set; }
         public int ByodId { get; set; }

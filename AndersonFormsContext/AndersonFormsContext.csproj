@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AndersonCRMModel">
+      <HintPath>..\..\DLL\Debug\AndersonCRM\AndersonCRMModel.dll</HintPath>
+    </Reference>
     <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\SourceCode\DLL\BaseData.dll</HintPath>

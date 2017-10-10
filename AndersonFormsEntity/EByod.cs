@@ -1,4 +1,5 @@
 ﻿using BaseEntity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,8 @@ namespace AndersonFormsEntity
     [Table("Byod")]
     public class EByod : EBase
     {
+        public DateTime? ApprovedDate { get; set; }
+
         public int ApprovedBy { get; set; }
         public int ApproverId { get; set; }
         [Key]
