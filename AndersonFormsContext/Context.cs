@@ -1,4 +1,5 @@
-﻿using AndersonFormsEntity;
+﻿using AndersonCRMModel;
+using AndersonFormsEntity;
 using System.Data.Entity;
 
 namespace AndersonFormsContext
@@ -23,5 +24,6 @@ namespace AndersonFormsContext
         public DbSet<ERequestedItem> RequestedItems { get; set; }
         public DbSet<ETypeOfDevice> TypeOfDevices { get; set; }
 
+        public DbSet<Employee> Employees { get; set; }
     }
 }

@@ -18,8 +18,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -46,12 +46,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccountsFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="AccountsModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="AccountsWebAuthentication, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="AndersonCRMFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="AndersonCRMModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="AccountsFunction">
+      <HintPath>..\..\DLL\Debug\Accounts\AccountsFunction.dll</HintPath>
+    </Reference>
+    <Reference Include="AccountsModel">
+      <HintPath>..\..\DLL\Debug\Accounts\AccountsModel.dll</HintPath>
+    </Reference>
+    <Reference Include="AccountsWebAuthentication">
+      <HintPath>..\..\DLL\Debug\Accounts\AccountsWebAuthentication.dll</HintPath>
+    </Reference>
+    <Reference Include="AndersonCRMFunction">
+      <HintPath>..\..\DLL\Debug\AndersonCRM\AndersonCRMFunction.dll</HintPath>
+    </Reference>
+    <Reference Include="AndersonCRMModel">
+      <HintPath>..\..\DLL\Debug\AndersonCRM\AndersonCRMModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Base">
+      <HintPath>..\..\DLL\Release\Base\Base.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -334,6 +346,11 @@
     <Content Include="bower_components\tether\src\js\utils.js" />
     <Content Include="Content\anderson.jpg" />
     <Content Include="Content\Andersonlogo.png" />
+    <Content Include="Content\asset\css\bootstrap.min.css" />
+    <Content Include="Content\asset\css\component.css" />
+    <Content Include="Content\asset\css\welcome.css" />
+    <Content Include="Content\asset\nav\navbar-fixed-left.min.css" />
+    <Content Include="Content\asset\nav\navbar-fixed-right.min.css" />
     <Content Include="Content\byodlogo.png" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
@@ -433,6 +450,8 @@
     <Content Include="bower_components\tether\src\css\tether-theme-arrows.sass" />
     <Content Include="bower_components\tether\src\css\tether-theme-basic.sass" />
     <Content Include="bower_components\tether\src\css\tether.sass" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -453,7 +472,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Byod\Index.cshtml" />
     <Content Include="Views\Byod\Create.cshtml" />
@@ -572,7 +590,9 @@
     <Content Include="bower_components\bootstrap\package.json" />
     <Content Include="bower_components\bootstrap\README.md" />
     <Content Include="Views\Shared\_PartialCSS.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Home\Aboutus.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

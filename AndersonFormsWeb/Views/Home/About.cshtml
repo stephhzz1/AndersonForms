@@ -1,35 +1,70 @@
-﻿@{
+﻿<style>
+     h3{
+         font-family:Verdana;
+          font-weight:bold;
+           font-size:36px;
+           color:black;
+          text-transform:uppercase;
+        }
+     h2{
+         padding-top:20px;
+         font-family:Arial;
+          font-weight:bold;
+           letter-spacing:40px; 
+           color:blue;
+          text-transform:uppercase;
+        }
+     p{
+         font-family:Verdana;
+         font-style:italic;
+     }
+    
+    </style>
+
+@{
     ViewBag.Title = "About Us";
+   
 }
+<center>
+    <div id="wrapper">
 
-<!--About Us Header-->
-<br /><br /><br /><br /><br /><br /><br />
-<center><h2 style="font-family:Arial; font-weight:bold; letter-spacing:40px; color:blue; text-transform:uppercase;">@ViewBag.Title</h2></center>
-<br /><br /><br />
-<!--End of About Us Header-->
-<!--About Us Content-->
-<div class="wrapper">
-    <center>
-        <div class="well well-lg" style=" background-image:url(../../Content/anderson.jpg); background-repeat:no-repeat; background-position:center;background-size:cover;">
+        <h2>
+            @ViewBag.Title
+        </h2>
 
-            <!--About Us Photo and Title-->
-            <img src="~/Content/Andersonlogo.png" height="100" width="100" /> <h1 style=" font-family:Georgia; font-size:30px;font-weight:bold;">@ViewBag.Message </h1>
-            <!--End of About Us Photo and Title-->
-            <!--About Us Developers-->
-            <hr width="80%" />
-            <strong><span class="glyphicon glyphicon-user"></span> Developers:</strong>
-            <p style="letter-spacing:1px;color:black; font-family:Georgia;">
-                Rowena Daisy A. Tecson | &nbsp;Christian Al A. Gonzalvo | &nbsp;Donalyn L. Evangelista | &nbsp;  Nina Marie C. Bautista |
-                Zymon Peter Q. Bergania | &nbsp; Mary Joyce F. Guitering | &nbsp; Namra Lei Angeles |
-                Racylyn Garcia | &nbsp; Ray Julian Bay | &nbsp; Jayson Alico
-            </p>
+
+        <div id="page-content-wrapper">
+         
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>ANDERSON FORMS</h3>
+                        <p>
+                            Anderson Forms is a system designed for the forms of Roll-in, Roll-out.
+                            The system includes different projects namely BYOD(Bring your own device), Accounts, and RI(Roll-in) then integrated into one form.
+                            Anderson Forms is a form system that is directed to the new employees of the company.
+                        </p>
+
+
+                    </div>
+                 </div>
+            <div>
+
+                <strong><span class="glyphicon glyphicon-user"></span> Developers:</strong>
+                <p style="letter-spacing:1px;color:black; font-family:Georgia;">
+                    <a href="http://andersongroup.ph">Rowena Daisy A. Tecson</a>
+                    <a href="http://andersongroup.ph">| &nbsp;Zymon Peter Q. Bergania </a>
+                    <a href="http://andersongroup.ph">| Mary Joyce F. Guitering </a><br>
+
+                    <a href="http://andersongroup.ph">|Namra Lei Angeles </a>
+                    <a href="http://andersongroup.ph">| &nbsp;Racylyn Garcia </a>
+                    <a href="http://andersongroup.ph">| &nbsp;Ray Julian Bay </a><br>
+
+                    <a href="http://andersongroup.ph">| &nbsp;Jayson Alico </a>
+                    <a href="http://andersongroup.ph">| &nbsp;Donalyn L. Evangelista </a>
+                    <a href="http://andersongroup.ph">| &nbsp;Nina Marie C. Bautista </a>
+
+                </p>
+            </div>
         </div>
-        <!--End of About Us Developers-->
-    </center>
-</div>
-
-<!--End of About us Content-->
-<!--About Footer-->
-<br /><br /><br />
-<div class="wrapper"><footer><hr width="100%" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; @DateTime.Now.Year - ANDERSON GROUP BPO INC.</footer></div>
-<!--End of About Footer-->
+    </div>
+</center>
