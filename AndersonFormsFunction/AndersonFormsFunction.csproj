@@ -36,8 +36,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\SourceCode\DLL\Base.dll</HintPath>
     </Reference>
-    <Reference Include="BaseData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="BaseEntity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="BaseData">
+      <HintPath>..\..\DLL\Release\Base\BaseData.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseEntity">
+      <HintPath>..\..\DLL\Release\Base\BaseEntity.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\SourceCode\DLL\EntityFramework.dll</HintPath>

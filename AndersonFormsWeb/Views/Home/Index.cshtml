@@ -1,7 +1,55 @@
-﻿
+﻿<style>
+    h1 {
+        font-size: 40px;
+        padding-top: 40px;
+        font-family: Arial;
+        font-weight: bold;
+        letter-spacing: 20px;
+        color: blue;
+        font-style:italic;
+        text-transform: uppercase;
+        
+    }
+
+    
+   #forms{
+       font-family: Arial;
+       font-style:oblique;
+       font-size: large;
+       font-weight: bold;
+       color:black;
+   }
+ .btn-group-lg{
+     width:150px;
+     background-color:lightblue;
+ }
+  
+</style>
+
 @{
+
     ViewBag.Title = "Index";
 }
 
-<h2>Anderson Forms</h2>
 
+@*<div id="page-content-wrapper">*@
+    <center>
+        <div class="row">
+            <div class="col-lg-12">
+                <br><br><br>
+                <h1>&nbsp;WELCOME TO</h1>
+                <h1>ANDERSON GROUP BPO</h1>
+                <br><br><br>
+                <a href="#menu-toggle" id="forms" class="btn btn-default btn-group-lg menu-toggle">Forms</a>
+            </div>
+        </div>
+    </center>
+<br><br><br><br><br><br><br><br><br><br><br>
+@*</div>*@
+
+<script>
+    $(".menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>

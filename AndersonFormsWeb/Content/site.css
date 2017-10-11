@@ -1,14 +1,19 @@
-﻿/*Layout*/
+﻿
+/*Layout*/
 body {
     padding-right: 15px;
     padding-left:15px;
+     background-color:lightgray;
 }
 
 .body-content {
-    padding-top: 75px;
+   padding-top: 0;
+    padding-right: 0px;
 }
+
 /*Layout*/
 
 .row {
     padding-bottom: 15px;
 }
+

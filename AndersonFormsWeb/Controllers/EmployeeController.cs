@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using AndersonCRMFunction;
+using AndersonCRMModel;
 
+using System;
+using System.Web.Mvc;
 
 namespace AndersonFormsWeb.Controllers
 {
@@ -41,7 +44,7 @@ namespace AndersonFormsWeb.Controllers
         //    try
         //    {
         //        employee.CompanyId = 1;
-        //        employee.PositionId = "1";
+        //        employee.PositionId = 1;
         //        employee = _iFEmployee.Create(employee);
         //        return Json("");
         //    }
@@ -51,14 +54,14 @@ namespace AndersonFormsWeb.Controllers
         //    }
 
         //}
-        ////public JsonResult GetData()
-        ////{
-        ////    Employee db = new Employee();
+        //public JsonResult GetData()
+        //{
+        //    Employee db = new Employee();
 
-        ////    Employee data = db.EmployeeId.OrderByAsscending(x => x.EmployeeID).Take(1).FirstOrDefault();
+        //    Employee data = db.EmployeeId.OrderByAsscending(x => x.EmployeeID).Take(1).FirstOrDefault();
 
-        ////    return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        ////}
+        //    return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        //}
 
         //[Route("List")]
         //[HttpPost]

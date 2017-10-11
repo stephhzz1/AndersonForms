@@ -7,12 +7,14 @@ namespace AndersonFormsWeb.Controllers
         public ActionResult Index()
         {
             return View();
-        }  
-
-        public ActionResult About()
+        }
+        public ActionResult Aboutus()
         {
             return View();
         }
+       
+       
+
     }
 
 }
