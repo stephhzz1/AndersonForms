@@ -16,16 +16,19 @@
     @Html.Partial("_PartialCSS")
 </head>
 <body>
-
-    @Html.Partial("_MainLayout")
-    <div>
-        @RenderBody()
+    <div class="col-sm-4">
+         @Html.Partial("_MainLayout")
     </div>
+    <div class="col-sm-8">
+        <div>
+            @RenderBody()
+        </div>
 
-    <footer>
-        <center>
-            <p>&copy; @DateTime.Now.Year - ANDERSON GROUP BPO Inc.</p>
-        </center>
-    </footer>
+        <footer>
+            <center>
+                <p>&copy; @DateTime.Now.Year - ANDERSON GROUP BPO Inc.</p>
+            </center>
+        </footer>
+    </div>
 </body>
 </html>
