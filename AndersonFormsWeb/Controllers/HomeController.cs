@@ -12,8 +12,13 @@ namespace AndersonFormsWeb.Controllers
         {
             return View();
         }
-       
-       
+
+        public void IndexController()
+        {
+
+        }
+
+
 
     }
 
