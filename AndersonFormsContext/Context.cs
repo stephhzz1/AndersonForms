@@ -22,12 +22,17 @@ namespace AndersonFormsContext
 
         }
 
+        //Added code
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
+
+
+
         public DbSet<EByod> Byods { get; set; }
         public DbSet<EChecklist> Checklists { get; set; }
         public DbSet<ERequestedItem> RequestedItems { get; set; }
