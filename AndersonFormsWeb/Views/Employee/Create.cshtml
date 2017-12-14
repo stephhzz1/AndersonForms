@@ -1,7 +1,15 @@
-﻿
+﻿<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
 @{
     ViewBag.Title = "Create";
 }
+
+
 <br><br><br><br>
 <div ng-controller="EmployeeController as model" ng-init="model.List()">
 
@@ -14,8 +22,10 @@
                     <div class="pull-left">
                         <div class="form-group">
                             <br><br>
+                            <label> Company: </label>
                             <select ng-model="model.Employee.EmployeeId">
-                                <option ng-bind="Employee.EmployeeId" placeholder="Select Company..."> Anderson Group PH</option>
+                                <option value="" disabled selected> Select.. </option>
+                                <option ng-bind="Employee.EmployeeId"> Anderson Group PH</option>
 
                             </select>
                             <br><br><br><br>
