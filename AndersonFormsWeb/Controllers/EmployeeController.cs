@@ -10,12 +10,12 @@ namespace AndersonFormsWeb.Controllers
     [RoutePrefix("Employee")]
     public class EmployeeController : Controller
     {
-        //private IFEmployee _iFEmployee;
+        private IFEmployee _iFEmployee;
 
-        //public EmployeeController()
-        //{
-        //    _iFEmployee = new FEmployee();
-        //}
+        public EmployeeController()
+        {
+            _iFEmployee = new FEmployee();
+        }
 
         //[Route("")]
         //[HttpGet]
@@ -31,11 +31,11 @@ namespace AndersonFormsWeb.Controllers
         //    return View();
         //}
 
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-        //    return View(new Employee());
-        //}
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View(new Employee());
+        }
         //[HttpPost]
 
         //public JsonResult Create(Employee employee)
