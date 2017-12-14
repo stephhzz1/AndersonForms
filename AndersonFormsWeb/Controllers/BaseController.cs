@@ -44,7 +44,7 @@ namespace AndersonFormsWeb.Controllers
         {
             get
             {
-                var user = _iFUser.ReadUser(Username);
+                var user = _iFUser.Read(Username);
                 return user;
             }
         }

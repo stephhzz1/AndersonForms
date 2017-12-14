@@ -1,47 +1,79 @@
 ﻿
 <style>
-   
-     .about-title {
-        width: 50%;
-        height: 15%;
-       
-    }
-     
-     </style>
+    ul {
+        list-style-type: none;
+        margin-top: 20px;
+        margin-right: 20px;
+        background-color: slategray;
+        position: fixed;
+        width: 98%;
+    } 
 
-<div id="wrapper">
-<div id="sidebar-wrapper">
-       
-    <center>
-        <img src="~/Content/Andersonlogo.png" class="about-title">
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-        <br><br>
-       
-            <ul class="sidebar-nav">
-                
-                    <li class="sidebar-brand">
-                        <a href="~/Home/Index"> HOME</a>
-                    </li>
-                    <li class="dropdown">
-                    <li class="sidebar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="~/RIRO/Index" title="RIRO"> RIRO  </a>
-                        <ul class="dropdown-menu">
-                            <li class="sidebar-brand">
-                                <ul>
-                                    <li class="sidebar-brand"><a href="~/Employee/Create">Employee</a></li>
-                                    <li class="sidebar-brand"><a href="~/RequestedItem/Create">Requested Item</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-brand">
-                        <a href="~/Byod/Index" title="BYOD">
-                            BYOD
-                        </a>
-                    </li>
-                    <li class="sidebar-brand"><a href="~/Home/Aboutus" title="About Us">About Us</a></li>
-                 </ul>
-    </center>
-    </div>
-</div>
+    li {
+        float: left;
+        list-style-type:none;
+    }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+           cursor:pointer;
+        }
+
+            li a:hover, .dropdown:hover .dropbtn {
+                background-color: deepskyblue;
+            }
+
+        li.dropdown {
+            position:relative;
+            display: inline-block;
+        }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        /*background-color: #; */
+        min-width: 160px;
+        color: white;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    } 
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+        }
+
+            .dropdown-content a:hover {
+                background-color: deepskyblue;
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown:hover .dropbtn {
+        background-color: deepskyblue;
+    }   
+    
+</style>
+
+<ul>
+    <li><a href="~/Home/Index"> Home </a> </li> 
+    <li class="dropdown">
+        <div class="dropbtn"> RIRO </div>
+               <div class="dropdown-content">
+            <a href="~/Employee/Create">Employee</a>
+            <a href="~/RequestedItem/Create">Requested Item</a>
+        </div>
+    </li>
+
+    <li><a href="~/Byod/Index"> BYOD </a> </li>
+    <li> <a href="~/Home/Aboutus"> About Us </a> </li>
+</ul>
+
+<div style="margin-top:30px"></div>

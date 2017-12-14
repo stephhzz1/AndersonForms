@@ -39,12 +39,17 @@ namespace AndersonFormsWeb.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(RollInModel rollInModel)
+
+        public JsonResult Create(int id ,RollInModel rollInModel)
+
         {
 
             try
             {
-                var employee = _iFEmployee.Create(rollInModel.Employee);
+
+
+                var employee = _iFEmployee.Create(id, rollInModel.Employee);
+
                 foreach (var requestedItem in rollInModel.RequestedItems)
                 {
                     requestedItem.EmployeeId = employee.EmployeeId;
