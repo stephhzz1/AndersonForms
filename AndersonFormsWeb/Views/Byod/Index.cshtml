@@ -1,4 +1,6 @@
-﻿@{
+﻿
+
+@{
     ViewBag.Title = "BYOD | Anderson Group PH";
 }
 <br> <br> <br> <br> <br> <br> <br> <br>
@@ -54,8 +56,10 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a ng-href="#" ng-click="model.Approve(byod.ByodId)" class="success"> Approve</a></li>
+                                <li><a ng-href="#" ng-click="model.Approve(byod.ByodId)" class="success">Approve</a></li>
                                 <li><a ng-href="{{'/Byod/Update/' + byod.ByodId}}" class="info"><i class="glyphicon glyphicon-edit"></i>Update</a></li>
+                                @*<li><a ng-href="{{'/Byod/Update/' + byod.ByodId}}" class="info"><i class="glyphicon glyphicon-edit"></i>Update</a></li>*@
+                                @*<li><a ng-href="{{'/Byod/Delete/' + byod.ByodId}}" ng-click="model.Delete(byod.ByodId)" class="danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a></li>*@
                                 <li><a ng-href="#" ng-click="model.Delete(byod.ByodId)" class="danger"> <i class="glyphicon glyphicon-trash"></i> Delete</a></li>
                             </ul>
                         </div>
@@ -64,3 +68,7 @@
             </tbody>
         </table>
     </div>
+
+
+
+
