@@ -9,7 +9,7 @@
         return {
             ReadForApproval: ReadForApproval,
             ReadRequested: ReadRequested,
-
+            Read: Read,
             Approve: Approve,
 
             Delete: Delete
@@ -26,6 +26,13 @@
             return $http({
                 method: 'POST',
                 url: '../Byod/ReadRequested',
+            })
+        }
+
+        function Read() {
+            return $http({
+                method: 'POST',
+                url: '../Byod/Read',
             })
         }
 
