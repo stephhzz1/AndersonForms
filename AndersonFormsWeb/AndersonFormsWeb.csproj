@@ -477,7 +477,6 @@
     <Content Include="Views\Byod\Create.cshtml" />
     <Content Include="Views\Byod\_Form.cshtml" />
     <Content Include="Views\Byod\Update.cshtml" />
-    <Content Include="Views\Byod\Delete.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Byod\Approval.cshtml" />
     <Content Include="Views\Byod\Request.cshtml" />
@@ -593,6 +592,7 @@
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Home\Aboutus.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Byod\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
