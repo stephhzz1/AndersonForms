@@ -15,6 +15,8 @@ namespace AndersonFormsModel
         }
 
         public DateTime? ApprovedDate { get; set; }
+      
+
 
         public int ApprovedBy { get; set; }
         public int ApproverId { get; set; }

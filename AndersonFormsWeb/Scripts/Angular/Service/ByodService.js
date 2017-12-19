@@ -11,7 +11,7 @@
             ReadRequested: ReadRequested,
             Read: Read,
             Approve: Approve,
-
+            Update: Update,
             Delete: Delete
         }
 
@@ -40,6 +40,13 @@
             return $http({
                 method: 'POST',
                 url: '../Byod/Approve/' + byodId
+            })
+        }
+
+        function Update(byodId) {
+            return $http({
+                method: 'POST',
+                url: '../Byod/Update/' + byodId
             })
         }
 
