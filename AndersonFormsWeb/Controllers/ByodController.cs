@@ -3,6 +3,9 @@ using AndersonFormsFunction;
 using AndersonFormsModel;
 using System;
 using System.Web.Mvc;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace AndersonFormsWeb.Controllers
 {
@@ -55,6 +58,7 @@ namespace AndersonFormsWeb.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -75,6 +79,38 @@ namespace AndersonFormsWeb.Controllers
         {
             return Json(_iFByod.ReadRequested(EmployeeId));
         }
+
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    if (!this.IsPostBack)
+        //    {
+        //        this.BindGrid();
+        //    }
+        //}
+
+        //private void BindGrid()
+        //{
+        //    string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        //    using (SqlConnection con = new SqlConnection(constr))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand("SELECT CustomerId, ContactName, City, Country FROM Customers"))
+        //        {
+        //            using (SqlDataAdapter sda = new SqlDataAdapter())
+        //            {
+        //                cmd.Connection = con;
+        //                sda.SelectCommand = cmd;
+        //                using (DataTable dt = new DataTable())
+        //                {
+        //                    sda.Fill(dt);
+        //                    GridView1.DataSource = dt;
+        //                    GridView1.DataBind();
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+
         #endregion
 
         #region Update
@@ -86,7 +122,7 @@ namespace AndersonFormsWeb.Controllers
                 Byod byod = _iFByod.Read(id);
                 return View(byod);
             }
-            catch 
+            catch
             {
                 return View(new Byod());
             }
@@ -100,7 +136,7 @@ namespace AndersonFormsWeb.Controllers
                 byod = _iFByod.Update(byod);
                 return RedirectToAction("Index", "Byod");
             }
-            catch 
+            catch
             {
                 return View(byod);
             }
@@ -114,7 +150,7 @@ namespace AndersonFormsWeb.Controllers
                 _iFByod.Approve(UserId, id);
                 return Json(true);
             }
-            catch 
+            catch
             {
                 return Json(false);
             }
@@ -130,7 +166,7 @@ namespace AndersonFormsWeb.Controllers
                 _iFByod.Delete(id);
                 return Json(true);
             }
-            catch 
+            catch
             {
                 return Json(false);
             }
