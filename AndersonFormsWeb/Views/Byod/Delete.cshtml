@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "BYOD | For Delete";
+}
+<style>
+    body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(/Content/anderson.jpg);
+    }
+
+    #tableid {
+        padding-top: 30px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-color: gray;
+        border-width: 2px
+    }
+
+    tbody {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-color: gray;
+        border-width: 2px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <br><br><br><br><br><br>
+        <div ng-app="myApp" ng-controller="ByodController as model" ng-init="model.List()">
+            <input type="hidden" value="byod.User.Username" />
+            <br />
+            <!--Table-->
+            <table class="table table-striped table-hover" id="tableid">
+                <!--Table Header-->
+                <thead style="background-color:transparent;">
+                    <tr id="info">
+                        <th>Type of Device ID</th>
+                        <th>Brand Name</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Serial Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="Byod in model.Byods | orderBy: UserId">
+
+                        <td>
+                            <span ng-bind="Byod.TypeOfDeviceId"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="Byod.BrandName"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="Byod.ContactNo"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="Byod.Email"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="Byod.SerialNumber"></span>
+                        </td>
+                        <td id="action">
+                            <!--Button of Deletion-->
+                            <a ng-click="model.Delete(byod.ByodId)" button data-toggle="modal" data-target="#method" style="color:blue;"><i class="glyphicon glyphicon-edit"></i>Delete</a> &emsp;
+
+                            <div id="method" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <br />
+                                    <br />
+
+                                </div>
+                            </div>
+                            </tr>
+                    </tbody>
+                </table>
+                           
+                            
+                                </div>
+                            </div>
+
+
+    
+    <!--end-->
+    <div class="modal fade" id="method" role="dialog">
+        <div id="myNav" class="overlay">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-color:blue;">
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="" style="border-color:blue;">
+        <center>
+            <a class="btn" href="~/Byod/Index" style="font-size:20px; font-weight:bolder; font-family:Georgia;">Back</a>
+        </center>
+    </div>
+
+</body>

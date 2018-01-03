@@ -1,10 +1,10 @@
-﻿ @{ 
+﻿ @*@{ 
     Layout = null;
-}
+}*@
 
 <style>
     .modal-body {
-                background-image: url(/Content/anderson.jpg);
+                background-color: white;
                 background-size: contain;
                 background-repeat: no-repeat;
                 }
@@ -30,7 +30,7 @@
 
         <div class="input-group">
             <span class="input-group-addon"> Type of Device:</span>
-            <input type="number" class="form-control" name="TypeOfDeviceId" value="@Model.TypeOfDeviceId" placeholder="Type of Device" required>
+            <input type="number" class="form-control" name="NoOfDevices" value="@Model.TypeOfDeviceId" placeholder="No. of Devices" required>
         </div>
         <br />
         <div class="input-group">
