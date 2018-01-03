@@ -22,11 +22,10 @@
                     <div class="pull-left">
                         <div class="form-group">
                             <br><br>
-                            <label> Company: </label>
-                            <select ng-model="model.Employee.EmployeeId">
+                            <label> Company:</label>
+                            <select>
                                 <option value="" disabled selected> Select.. </option>
-                                <option ng-bind="Employee.EmployeeId" placeholder="AndersonGroupPH"> Anderson Group PH </option>
-
+                                <option>Anderson Group PH</option>
                             </select>
                             <br><br><br><br>
                             <table class="info">
@@ -34,7 +33,7 @@
 
                                 <tr>
                                     <td><label>Employee Id:</label> <br /> </td>
-                                    <td> <input type="number" class="form-control" id="EmployeeId" ng-model="model.Employee.EmployeeId" /> <br /></td>
+                                    <td> <input type="number"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="javascript: return event.keyCode == 69 ? false : true" maxlength="7" class="form-control" id="EmployeeId" ng-model="model.Employee.EmployeeId" /> <br /></td>
 
                                 </tr>
 
@@ -51,8 +50,6 @@
                                     <td><input type="text" class="form-control" id="LastName" ng-model="model.Employee.LastName" placeholder="Last Name" /><br /> </td>
 
                                 </tr>
-
-
 
                                 <tr>
                                     <td><label>Department:</label> <br /> </td>
