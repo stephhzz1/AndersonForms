@@ -56,9 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DEmployee.cs" />
     <Compile Include="DRequestedItem.cs" />
     <Compile Include="IDByod.cs" />
     <Compile Include="DByod.cs" />
+    <Compile Include="IDEmployee.cs" />
     <Compile Include="IDRequestedItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

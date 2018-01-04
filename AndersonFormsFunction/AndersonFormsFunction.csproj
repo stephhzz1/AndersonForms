@@ -60,9 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FEmployee.cs" />
     <Compile Include="FRequestedItem.cs" />
     <Compile Include="IFByod.cs" />
     <Compile Include="FByod.cs" />
+    <Compile Include="IFEmployee.cs" />
     <Compile Include="IFRequestedItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

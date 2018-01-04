@@ -32,6 +32,7 @@
         }
 
         function Read() {
+
             if (vm.ListType.ListTypeId == 1) {
                 ByodService.ReadRequested(vm.ListType)
                     .then(function (response) {
