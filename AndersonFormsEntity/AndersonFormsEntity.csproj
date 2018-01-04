@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EChecklist.cs" />
+    <Compile Include="EEmployee.cs" />
     <Compile Include="ERequestedItem.cs" />
     <Compile Include="ETypeOfDevice.cs" />
     <Compile Include="EByod.cs" />

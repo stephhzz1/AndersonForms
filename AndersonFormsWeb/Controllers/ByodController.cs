@@ -122,7 +122,7 @@ namespace AndersonFormsWeb.Controllers
                 Byod byod = _iFByod.Read(id);
                 return View(byod);
             }
-            catch (Exception ex)
+            catch
             {
                 return View(new Byod());
             }
@@ -136,7 +136,7 @@ namespace AndersonFormsWeb.Controllers
                 byod = _iFByod.Update(byod);
                 return RedirectToAction("Index", "Byod");
             }
-            catch (Exception ex)
+            catch
             {
                 return View(byod);
             }
@@ -150,7 +150,7 @@ namespace AndersonFormsWeb.Controllers
                 _iFByod.Approve(UserId, id);
                 return Json(true);
             }
-            catch (Exception ex)
+            catch
             {
                 return Json(false);
             }
@@ -166,7 +166,7 @@ namespace AndersonFormsWeb.Controllers
                 _iFByod.Delete(id);
                 return Json(true);
             }
-            catch (Exception ex)
+            catch
             {
                 return Json(false);
             }
